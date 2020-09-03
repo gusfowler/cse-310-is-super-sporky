@@ -1,0 +1,190 @@
+Choice		Action
+------		------
+A		Add Food
+C		Change A Food Name
+D		Display All Foods
+F		Find A Food
+P		Change Food Price
+R		Remove Food by ID
+S		Remove Food by Name
+Q		Quit
+?		Display Help
+
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "pizza" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "bacon" is added
+
+What action would you like to perform?
+bacon   2006      $4.99
+chips   3005      $2.99
+pizza   7003      $8.75
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "pizza" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "bacon" is added
+
+What action would you like to perform?
+bacon   2006      $4.99
+bacon   2008      $7.99
+chips   3005      $2.99
+pizza   7003      $8.75
+pizza   7005      $11.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+bacon   2006      $4.99
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3005      $2.99
+chips   3007      $3.99
+pizza   7003      $8.75
+pizza   7005      $11.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+Duplicated food item. Not added.
+The food "pizza" is NOT added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "pizza" is added
+
+What action would you like to perform?
+bacon   2006      $4.99
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3005      $2.99
+chips   3007      $3.99
+pizza   7003      $8.75
+pizza   7005      $11.99
+pizza   7007      $10.99
+
+What action would you like to perform?
+
+Please enter the food ID to remove:
+
+Food with ID #: 8001 does not exist
+
+What action would you like to perform?
+
+Please enter the food ID to remove:
+
+Food with ID #: 2006 was removed
+
+What action would you like to perform?
+
+Please enter the food ID to remove:
+
+Food with ID #: 7007 was removed
+
+What action would you like to perform?
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3005      $2.99
+chips   3007      $3.99
+pizza   7003      $8.75
+pizza   7005      $11.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+Duplicated food item. Not added.
+The food "chips" is NOT added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3005      $2.99
+chips   3007      $3.99
+chips   3009      $3.59
+pizza   7003      $8.75
+pizza   7005      $11.99
+
+What action would you like to perform?
+Please enter the food ID which you want to change the name:
+
+Please enter the new name: 
+Food with ID #: 3005 name was changed
+
+What action would you like to perform?
+apple   3005      $2.99
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3007      $3.99
+chips   3009      $3.59
+pizza   7003      $8.75
+pizza   7005      $11.99
+
+What action would you like to perform?
+Please enter the food ID which you want to change the name:
+
+Please enter the new name: 
+Food with ID #: 7003 name was changed
+
+What action would you like to perform?
+apple   3005      $2.99
+bacon   2008      $7.99
+chips   3001      $1.99
+chips   3007      $3.99
+chips   3009      $3.59
+pizza   7005      $11.99
+wine    7003      $8.75
+
+What action would you like to perform?
+The number of deleted food items is: 7

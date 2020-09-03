@@ -1,0 +1,149 @@
+Choice		Action
+------		------
+A		Add Food
+C		Change A Food Name
+D		Display All Foods
+F		Find A Food
+P		Change Food Price
+R		Remove Food by ID
+S		Remove Food by Name
+Q		Quit
+?		Display Help
+
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "fish" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "apple" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "cake" is added
+
+What action would you like to perform?
+apple   1005      $1.99
+cake    3006      $12.99
+fish    5003      $8.75
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "apple" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    3006      $12.99
+fish    5003      $8.75
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "cake" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    3006      $12.99
+cake    3009      $14.99
+fish    5003      $8.75
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "ginger" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    3006      $12.99
+cake    3009      $14.99
+fish    5003      $8.75
+ginger  6002      $2.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    3006      $12.99
+cake    3009      $14.99
+fish    5003      $8.75
+ginger  6002      $2.99
+wine    9005      $13.99
+wine    9007      $15.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    3006      $12.99
+cake    3009      $14.99
+fish    5003      $8.75
+ginger  6002      $2.99
+wine    9003      $11.99
+wine    9005      $13.99
+wine    9007      $15.99
+
+What action would you like to perform?
+
+Please enter the food id you want to search:
+
+Food with ID #: 6002 was found
+
+What action would you like to perform?
+
+Please enter the food id you want to search:
+
+Food with ID #: 1003 was found
+
+What action would you like to perform?
+
+Please enter the food id you want to search:
+
+Food with ID #: 4002 was not found
+
+What action would you like to perform?
+
+Please enter the food id you want to search:
+
+Food with ID #: 1005 was found
+
+What action would you like to perform?
+The number of deleted food items is: 9

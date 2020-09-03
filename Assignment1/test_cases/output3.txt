@@ -1,0 +1,204 @@
+Choice		Action
+------		------
+A		Add Food
+C		Change A Food Name
+D		Display All Foods
+F		Find A Food
+P		Change Food Price
+R		Remove Food by ID
+S		Remove Food by Name
+Q		Quit
+?		Display Help
+
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "chips" is added
+
+What action would you like to perform?
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "apple" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "cake" is added
+
+What action would you like to perform?
+apple   1005      $1.99
+cake    2006      $12.99
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "apple" is added
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    2006      $12.99
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food name to remove:
+
+Food with name: wine was removed
+
+What action would you like to perform?
+apple   1003      $0.99
+apple   1005      $1.99
+cake    2006      $12.99
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+
+What action would you like to perform?
+Please enter the food name to remove:
+No such food name found.
+
+Food with name: bacon does not exist
+
+What action would you like to perform?
+Please enter the food name to remove:
+
+Food with name: apple was removed
+
+What action would you like to perform?
+cake    2006      $12.99
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "wine" is added
+
+What action would you like to perform?
+cake    2006      $12.99
+chips   3001      $1.99
+chips   3003      $2.99
+chips   3005      $3.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food name to remove:
+
+Food with name: chips was removed
+
+What action would you like to perform?
+cake    2006      $12.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food name to remove:
+
+Food with name: cake was removed
+
+What action would you like to perform?
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "pizza" is added
+
+What action would you like to perform?
+Please enter the food information:
+Enter the food name:
+Enter food id:
+Enter the food price:
+The food "pizza" is added
+
+What action would you like to perform?
+pizza   7005      $13.99
+pizza   7007      $10.99
+wine    9003      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+
+Please enter the food ID to remove:
+
+Food with ID #: 9003 was removed
+
+What action would you like to perform?
+
+Please enter the food ID to remove:
+
+Food with ID #: 7007 was removed
+
+What action would you like to perform?
+pizza   7005      $13.99
+wine    9005      $15.99
+
+What action would you like to perform?
+The number of deleted food items is: 2

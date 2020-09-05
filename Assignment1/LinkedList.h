@@ -127,13 +127,7 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
                     break;
                 }
             } else if (comparisonValue > 0) {
-                if (counter == 0) {
-                    newFood.next = current;
-                    this->head = &newFood;
-
-                    successful = true;
-                    break;
-                } else if (previous != NULL) {
+                if (previous != NULL) {
                     newFood.next = current;
                     previous->next = &newFood;
                     successful = true;
@@ -262,7 +256,8 @@ void LinkedList::printFoodList()
     struct Food* current = this->head;
 
     while (current != NULL) {
-        printf("%-7s%5i$%7d.2", current->foodName, current->id, current->price);
+        //printf("%-7s%5i$%7d.2", current->foodName, current->id, current->price);
+        cout << current << endl;
         current = current->next;
     }
     //----

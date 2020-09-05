@@ -104,6 +104,7 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
 
     if (this->head == NULL) {
         this->head = &newFood;
+        successful = true;
     } else {
         struct Food* current = this->head;
         struct Food* previous = NULL;

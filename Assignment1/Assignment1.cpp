@@ -1,7 +1,7 @@
 // Assignment: #1
-// Name:
-// ASU ID:
-// ASU Email Address:
+// Name: August Fowler
+// ASU ID: 1214774210 
+// ASU Email Address: amfowle3@asu.edu
 // Description: This program displays a menu of choices to a user
 //              and performs the chosen task. It will keep asking a user to
 //              enter the next choice until the choice of 'Q' (Quit) is entered.
@@ -66,6 +66,8 @@ int main()
 
                 //**** Add your own codes here ****
                 //----
+                cin >> line;
+                success = list1->changeFoodName(id, line);
                 //----
 
                 if (success == true)
@@ -78,16 +80,18 @@ int main()
 
                 //**** Add your own codes here ****
                 //----
+                list1->printFoodList();
                 //----
                 break;
 
               case 'F':   //Find a food
                 cout << "\nPlease enter the food id you want to search:\n";
-                cin >>id;
+                cin >> id;
                 cin.ignore(20, '\n');   //flush the buffer
 
                 //**** Add your own codes here ****
                 //----
+                success = list1->isFound(id);
                 //----
 
                 if (success == true)
@@ -104,6 +108,7 @@ int main()
 
                 //**** Add your own codes here ****
                 //----
+                success = list1->isFound(id);
                 //----
 
                 if (success)  //food found inside
@@ -114,6 +119,7 @@ int main()
 
                     //**** Add your own codes here ****
                     //----
+                    list1->changeFoodPrice(id, price);
                     //----
                     cout << "Food with ID #: " << id << " price was updated\n";
                  }
@@ -128,6 +134,7 @@ int main()
 
                //**** Add your own codes here ****
                //----
+               success = list1->removeById(id);
                //----
 
                if (success == true)
@@ -141,6 +148,8 @@ int main()
 
                //**** Add your own codes here ****
                //----
+               cin >> line;
+               success = list1->removeByName(line);
                //----
 
                if (success == true)

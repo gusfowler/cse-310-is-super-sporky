@@ -133,7 +133,11 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
                     successful = true;
                     break;
                 }
-            } 
+            } else if (current->next == NULL) {
+                current->next = &newFood;
+                successful = true;
+                break;
+            }
             previous = current;
             current = current->next;
             counter++;

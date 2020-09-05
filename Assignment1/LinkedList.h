@@ -268,7 +268,7 @@ void LinkedList::printFoodList()
     struct Food* current = this->head;
 
     while (current != NULL) {
-        printf("%-7s%5i$%7d", current->foodName, current->id, current->price);
+        printf("%-7s%5i$%7d.2", current->foodName, current->id, current->price);
         current = current->next;
     }
     //----

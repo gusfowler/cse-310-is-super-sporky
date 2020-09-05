@@ -102,14 +102,36 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
     newFood.foodName = foodPrice;
     newFood.next = NULL;
 
-    struct Food* current = this->head;
-    struct Food* previous = NULL;
-    int counter = 0;
-    while (current != NULL) {
-        int comparisonValue = foodName.compare(current->foodName);
-        
-        if (comparisonValue == 0) {
-            if (newFood.id > current->id) {
+    if (this->head == NULL) {
+        this->head = &newFood;
+    } else {
+        struct Food* current = this->head;
+        struct Food* previous = NULL;
+        int counter = 0;
+        while (current != NULL) {
+            int comparisonValue = foodName.compare(current->foodName);
+            
+            if (comparisonValue == 0) {
+                if (newFood.id > current->id) {
+                    if (counter == 0) {
+                        newFood.next = current;
+                        this->head = &newFood;
+
+                        successful = true;
+                        break;
+                    } else if (previous != NULL) {
+                        newFood.next = current;
+                        previous->next = &newFood;
+                        successful = true;
+                        break;
+                    }
+                } else if (newFood.id < current->id) {
+                    newFood.next = current->next;
+                    current->next = &newFood;
+                    successful = true;
+                    break;
+                }
+            } else if (comparisonValue > 0) {
                 if (counter == 0) {
                     newFood.next = current;
                     this->head = &newFood;
@@ -122,31 +144,13 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
                     successful = true;
                     break;
                 }
-            } else if (newFood.id < current->id) {
-                newFood.next = current->next;
-                current->next = &newFood;
-                successful = true;
-                break;
-            }
-        } else if (comparisonValue > 0) {
-            if (counter == 0) {
-                newFood.next = current;
-                this->head = &newFood;
-
-                successful = true;
-                break;
-            } else if (previous != NULL) {
-                newFood.next = current;
-                previous->next = &newFood;
-                successful = true;
-                break;
-            }
-        } 
-        previous = current;
-        current = current->next;
-        counter++;
+            } 
+            previous = current;
+            current = current->next;
+            counter++;
+        }
     }
-
+    
     return successful;
      //----
 }

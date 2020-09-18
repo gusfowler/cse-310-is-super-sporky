@@ -1,0 +1,30 @@
+Algorithim: findMajorityElement(A[n])
+Input: Array A  Output: Element of Majority in A ((n/2) < countElement)
+IF n=2 then
+    IF A[1]=A[2] then
+        return A[1]
+    EndIF
+ELSE
+    return No Majority Element Found
+ENDIF/ELSE
+#Create a temporary array temp
+FOR i=1 to n:
+    IF A[i] = A[i+1] then
+        Insert A[i] into temp
+    ENDIF
+    i=i+1
+EndFOR
+return findMajorityElement (temp)
+End Algorithim
+
+Algorithim: sanityCheck(A[n])
+Input: Array A  Output: Element of Majority in A 
+M = findMajorityElement (A[n])
+frequency= findFreq(A[n],M)
+IF frequency > (n/2) + 1 then
+    return P
+ELSE
+    return No Majority Element Found
+ENDIF/ELSE
+END Algorithim
+//findFreq counts the number of elements in an Array

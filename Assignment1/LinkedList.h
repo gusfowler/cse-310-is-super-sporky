@@ -99,18 +99,24 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
     struct Food newFood;
     newFood.foodName = foodName;
     newFood.id = foodId;
-    newFood.foodName = foodPrice;
+    newFood.price = foodPrice;
     newFood.next = NULL;
 
     if (this->head == NULL) {
         this->head = &newFood;
         successful = true;
+        cout << "added head" << '\t' << this->head->foodName << endl;
     } else {
+        cout << "hit post head add" << endl;
         struct Food* current = this->head;
+        cout << current->foodName << endl;
         struct Food* previous = NULL;
         int counter = 0;
-        while (current != NULL) {
+        while (current != NULL && successful == false) {
+            cout << "hit while" << endl;
             int comparisonValue = foodName.compare(current->foodName);
+            cout << current->foodName << '\t' << comparisonValue << '\t' << foodName << endl;
+
             
             if (comparisonValue == 0) {
                 if (newFood.id > current->id) {
@@ -118,25 +124,22 @@ bool LinkedList::add(string foodName, int foodId, double foodPrice)
                         newFood.next = current;
                         previous->next = &newFood;
                         successful = true;
-                        break;
                     }
                 } else if (newFood.id < current->id) {
                     newFood.next = current->next;
                     current->next = &newFood;
                     successful = true;
-                    break;
                 }
             } else if (comparisonValue > 0) {
                 if (previous != NULL) {
                     newFood.next = current;
                     previous->next = &newFood;
                     successful = true;
-                    break;
                 }
             } else if (current->next == NULL) {
                 current->next = &newFood;
                 successful = true;
-                break;
+                cout << "hit add in end" << endl;
             }
             previous = current;
             current = current->next;

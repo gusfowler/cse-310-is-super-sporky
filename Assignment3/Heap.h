@@ -1,10 +1,12 @@
 //********************************************************
 // Assignment: ASU CSE310 HW#3
-// Your Name:
-// ASU ID:
-// ASU Email address:
-// Description:
+// Your Name: August Fowler
+// ASU ID: 1214774210
+// ASU Email address: amfowle3@asu.edu
+// Description: 
 //********************************************************
+#define LEFT(i) (2*i + 1)
+#define RIGHT(i) (2*i + 2)
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -49,6 +51,9 @@ class Heap
 Heap::Heap(int capacity)
 {
  	//----
+	 foodArr = new Food[capacity]; 	// init array
+	 this->capacity = capacity;		// set capacity in this
+	 this->size = 0;				// sets current size to zero
  	//----
 }
 
@@ -58,12 +63,75 @@ Heap::Heap(int capacity)
 Heap::~Heap()
 {
 	//----
+	int foodCount = getSize();
+	delete[] foodArr;
 	//----
 	cout << "\nThe number of deleted food items is: " << foodCount << endl;
 }
 
 //Finish all the remaining functions according to the project's description
 //----
+Food* Heap::getFoodArr() {
+	return foodArr;
+}
+
+int Heap::getSize() {
+	return size;
+}
+
+int Heap::getCapacity() {
+	return capacity;
+}
+
+int Heap::isFound(int foodKey) {
+	int index = -1;
+	for (int i = 0; i < size; i++) {
+		if (foodArr[i].key == foodKey) {
+			index = i;
+			return index;
+		}
+	}
+	return index;
+}
+
+bool Heap::increaseKey(int index, Food foodwithNewKey) {	// not finished!! need to heapify
+	bool success = false;
+
+	try {
+		foodArr[index].key = foodwithNewKey.key;
+		success = true;
+	} catch (exception e) {
+		cout << "increaseKey exception:\t" << e.what() << endl;
+	}
+
+	return success;
+}
+
+bool Heap::insert(int key, string foodName, double foodPrice) {		// not finished !!
+
+}
+
+void Heap::heapify(int index) {
+	int largest = index;
+	int left = LEFT(index);
+	int right = RIGHT(index);
+
+	// if left leaf is larger than root
+	if (left < size && foodArr[left].key > foodArr[largest].key) {
+		largest = left;
+	}
+
+	// if right leaf is larger than root
+	if (right < size && foodArr[right].key > foodArr[largest].key) {
+		largest = right;
+	}
+
+	if (largest != index) {
+		//swap index and largest
+
+		heapify(largest);
+	}
+}
 //----
 
 void Heap::printHeap()

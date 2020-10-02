@@ -13,6 +13,7 @@
 #include <string>
 
 //include the header file here
+#include <Heap.h>
 //----
 
 using namespace std;

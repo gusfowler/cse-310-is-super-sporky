@@ -1,8 +1,8 @@
 //********************************************************************************
 // Assignment: ASU CSE310 HW#3
-// Name:
-// ASU ID:
-// ASU Email Address:
+// Name: August Fowler
+// ASU ID: 1214774210
+// ASU Email Address: amfowle3@asu.edu
 // Description: This program displays a menu of choices to a user
 //              and performs the chosen task. It will keep asking a user to
 //              enter the next choice until the choice of 'Q' (Quit) is entered.

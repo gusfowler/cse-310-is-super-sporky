@@ -7,6 +7,7 @@
 //********************************************************
 #define LEFT(i) (2*i + 1)
 #define RIGHT(i) (2*i + 2)
+#define PARENT(i) ((i - 1) / 2)
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -28,6 +29,7 @@ class Heap
     private:
 	struct Food* foodArr;	//an array of Food
 	int capacity, size;
+	void sort();
 
     public:
 	Heap(int capacity);
@@ -94,7 +96,7 @@ int Heap::isFound(int foodKey) {
 	return index;
 }
 
-bool Heap::increaseKey(int index, Food foodwithNewKey) {	// not finished!! need to heapify
+bool Heap::increaseKey(int index, Food foodwithNewKey) {
 	bool success = false;
 
 	try {
@@ -104,11 +106,38 @@ bool Heap::increaseKey(int index, Food foodwithNewKey) {	// not finished!! need 
 		cout << "increaseKey exception:\t" << e.what() << endl;
 	}
 
+	heapify(parent(index));
+
 	return success;
 }
 
-bool Heap::insert(int key, string foodName, double foodPrice) {		// not finished !!
+bool Heap::insert(int key, string foodName, double foodPrice) {
+	bool success = false; 
+	
+	if (size < capacity) {
+		Food newFood;
+		newFood.key = key;
+		newFood.foodName = foodName;
+		newFood.price = foodPrice;
+		foodArr[size] = newFood;
+		heapify(parent(size));
+		size += 1;
+		success = true;
+	}
 
+	return success;
+}
+
+int Heap::leftChild(int parentIndex) {
+	return LEFT(parentIndex);
+}
+
+int Heap::rightChild(int parentIndex) {
+	return RIGHT(parentIndex);
+}
+
+int Heap::parent(int childIndex) {
+	return (childIndex - 1) / 2;
 }
 
 void Heap::heapify(int index) {
@@ -128,7 +157,11 @@ void Heap::heapify(int index) {
 
 	if (largest != index) {
 		//swap index and largest
+		Food temp = foodArr[index];
+		foodArr[index] = foodArr[largest];
+		foodArr[largest] = temp;
 
+		// run recursively on the rest of the tree
 		heapify(largest);
 	}
 }
@@ -137,11 +170,31 @@ void Heap::heapify(int index) {
 void Heap::printHeap()
 {
 	//----
+	for (int i = 0; i < size; i++) {
+		cout << left;
+		cout << setw(5) << foodArr[i].key
+			 << setw(8) << foodArr[i].foodName
+			 << setw(8) << fixed << setprecision(2) << foodArr[i].price << endl;
+	}
 	//----
+}
 
-    cout << left;
-	cout << setw(5) << foodArr[i].key
-         << setw(8) << foodArr[i].foodName
-         << setw(8) << fixed << setprecision(2) << foodArr[i].price << endl;
+void Heap::sort() {
+	for (int i = (size / 2) - 1; i >= 0; i--) {
+		heapify(i);
+	}
+}
 
+Food Heap::getHeapMax() {
+	return foodArr[0];
+}
+
+void Heap::extractHeapMax() {
+	// swap first and last
+	Food temp = foodArr[0];
+	foodArr[0] = foodArr[size - 1];
+	size -= 1;
+
+	// call heapify
+	heapify(0);
 }

@@ -47,6 +47,8 @@ int main()
 			case 'C':	//create empty Heap with the relevant capacity
 				cout << "\nPlease enter the heap capacity: ";
 				//----
+				cin >> capacity;
+				heap1 = new Heap(capacity);
 				//----
 				cin.ignore(20, '\n');	//flush the buffer
 				break;
@@ -56,11 +58,22 @@ int main()
 			case 'D':
 				cout << "\nDelete the heap" << endl;
 				//----
+				heap1->~Heap();
+				heap1 = new Heap(5);
 				//----
 				break;
 
 			case 'E':	//Extract the maximum node
                 //----
+				if (heap1 == nullptr || heap1->getSize() == 0) {
+					cout << "\nEmpty heap, can NOT extract max" << endl;
+				} else {
+					cout << "\nBefore extract heap max operation:" << endl;
+					heap1->printHeap();
+					heap1->extractHeapMax();
+					cout << "\nAfter extract heap max operation:" << endl;
+					heap1->printHeap();
+				}
 				//----
 				break;
 
@@ -70,6 +83,11 @@ int main()
 				cin.ignore(20, '\n');	//flush the buffer
 
 				//----
+				if (heap1->isFound(key) != -1){
+					printf("Food with key: %i is found", key);
+				} else {
+					printf("Food with key: %i is NOT found", key);
+				}
 				//----
 
 				break;
@@ -84,6 +102,7 @@ int main()
 				cin.ignore(20, '\n');	//flush the buffer
 
 				//----
+				heap1->insert(key, foodName, price);
 				//----
 				break;
 
@@ -95,18 +114,48 @@ int main()
 				cin.ignore(20, '\n');	//flush the buffer
 
 				//----
+				if (newKey < key) {
+					cout << "\nIncrease key error: new key is smaller than current key" << endl;
+				} else if (heap1->isFound(key) == -1) {
+					cout << "\nThe old key you try to increase does not exist" << endl;
+				} else if (heap1->isFound(newKey) != -1) {
+					cout << "\nThe new key you entered already exist, increase key operation failed" << endl;
+				} else {
+					cout << "\nBefore increase key operation:" << endl;
+					heap1->printHeap();
+					Food newFood;
+					newFood.key = newKey;
+					heap1->increaseKey(heap1->isFound(key), newFood);
+					printf("\nFood with old key: %i is increased to new key: %i", key, newKey);
+					cout << "\nAfter increase key operation:" << endl;
+					heap1->printHeap();
+				}
 				//----
 
 				break;
 
 			case 'M':	//get the maximum node
 			    //----
+				if (heap1 == nullptr || heap1->getSize()) {
+					cout << "\nEmpty heap, cannot get max node" << endl;
+				} else {
+					Food maxFood = heap1->getHeapMax();
+					cout << "\nThe maximum heap node is:" << endl;
+					cout << setw(5) << maxFood.key
+     					 << setw(8) << maxFood.foodName
+     					 << setw(8) << fixed << setprecision(2) << maxFood.price << endl;
+				}			
 				//----
 
 				break;
 
 			case 'P':	//Print heap contents
 			    //----
+				if (heap1 == nullptr || heap1->getSize()) {
+					cout << "\nEmpty heap, no elements" << endl;
+				} else {
+					heap1->printHeap();
+				}
 				//----
 
 				break;

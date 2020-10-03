@@ -120,7 +120,7 @@ bool Heap::insert(int key, string foodName, double foodPrice) {
 		newFood.foodName = foodName;
 		newFood.price = foodPrice;
 		foodArr[size] = newFood;
-		heapify(parent(size));
+		heapify(size);
 		size += 1;
 		success = true;
 	}

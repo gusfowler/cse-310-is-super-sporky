@@ -13,7 +13,7 @@
 #include <string>
 
 //include the header file here
-#include <Heap.h>
+#include "Heap.h"
 //----
 
 using namespace std;
@@ -136,7 +136,7 @@ int main()
 
 			case 'M':	//get the maximum node
 			    //----
-				if (heap1 == nullptr || heap1->getSize()) {
+				if (heap1 == nullptr || heap1->getSize() == 0) {
 					cout << "\nEmpty heap, cannot get max node" << endl;
 				} else {
 					Food maxFood = heap1->getHeapMax();
@@ -151,9 +151,10 @@ int main()
 
 			case 'P':	//Print heap contents
 			    //----
-				if (heap1 == nullptr || heap1->getSize()) {
+				if (heap1 == nullptr || heap1->getSize() == 0) {
 					cout << "\nEmpty heap, no elements" << endl;
 				} else {
+					printf("Heap capacity = %i\nHeap size = %i\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 				}
 				//----

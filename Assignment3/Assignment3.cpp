@@ -1,8 +1,8 @@
 //********************************************************************************
 // Assignment: ASU CSE310 HW#3
-// Name:
-// ASU ID:
-// ASU Email Address:
+// Name: August Fowler
+// ASU ID: 1214774210
+// ASU Email Address: amfowle3@asu.edu
 // Description: This program displays a menu of choices to a user
 //              and performs the chosen task. It will keep asking a user to
 //              enter the next choice until the choice of 'Q' (Quit) is entered.
@@ -49,6 +49,7 @@ int main()
 				//----
 				cin >> capacity;
 				heap1 = new Heap(capacity);
+				//cout << endl;
 				//----
 				cin.ignore(20, '\n');	//flush the buffer
 				break;
@@ -69,9 +70,11 @@ int main()
 					cout << "\nEmpty heap, can NOT extract max" << endl;
 				} else {
 					cout << "\nBefore extract heap max operation:" << endl;
+					printf("\nHeap capacity = %i\n\nHeap size = %i\n\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 					heap1->extractHeapMax();
 					cout << "\nAfter extract heap max operation:" << endl;
+					printf("\nHeap capacity = %i\n\nHeap size = %i\n\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 				}
 				//----
@@ -84,9 +87,9 @@ int main()
 
 				//----
 				if (heap1->isFound(key) != -1){
-					printf("Food with key: %i is found", key);
+					printf("Food with key: %i is found\n", key);
 				} else {
-					printf("Food with key: %i is NOT found", key);
+					printf("Food with key: %i is NOT found\n", key);
 				}
 				//----
 
@@ -95,14 +98,18 @@ int main()
 			case 'I':	//Insert a Food
 				cout << "\nEnter the food name: ";
 				getline(cin, foodName);
-				cout << "\nEnter food key: ";
+				cout << "Enter food key: ";
 				cin >> key;
-				cout << "\nEnter the food price: ";
+				cout << "Enter the food price: ";
 				cin >> price;
 				cin.ignore(20, '\n');	//flush the buffer
 
 				//----
-				heap1->insert(key, foodName, price);
+				if (heap1->insert(key, foodName, price)) {
+					cout << "The food " << '"' << foodName << '"' <<  " is added" << endl;
+				} else {
+					cout << "The food " << '"' << foodName << '"' <<  " is NOT added" << endl;
+				}
 				//----
 				break;
 
@@ -122,12 +129,14 @@ int main()
 					cout << "\nThe new key you entered already exist, increase key operation failed" << endl;
 				} else {
 					cout << "\nBefore increase key operation:" << endl;
+					printf("\nHeap capacity = %i\n\nHeap size = %i\n\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 					Food newFood;
 					newFood.key = newKey;
 					heap1->increaseKey(heap1->isFound(key), newFood);
 					printf("\nFood with old key: %i is increased to new key: %i", key, newKey);
 					cout << "\nAfter increase key operation:" << endl;
+					printf("\nHeap capacity = %i\n\nHeap size = %i\n\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 				}
 				//----
@@ -154,7 +163,7 @@ int main()
 				if (heap1 == nullptr || heap1->getSize() == 0) {
 					cout << "\nEmpty heap, no elements" << endl;
 				} else {
-					printf("Heap capacity = %i\nHeap size = %i\n", heap1->getCapacity(), heap1->getSize());
+					printf("\nHeap capacity = %i\n\nHeap size = %i\n\n", heap1->getCapacity(), heap1->getSize());
 					heap1->printHeap();
 				}
 				//----

@@ -47,6 +47,7 @@ class Heap
 	int rightChild(int parentIndex);
 	int parent(int childIndex);
 	void printHeap();
+	bool findByKey(int foodKey);
 };
 
 //Constructor to dynamically allocate memory for a heap with the specified capacity
@@ -96,17 +97,17 @@ int Heap::isFound(int foodKey) {
 	return index;
 }
 
-bool Heap::increaseKey(int index, Food foodwithNewKey) {
+bool Heap::increaseKey(int index, Food oneFoodwithNewKey) {
 	bool success = false;
 
 	try {
-		foodArr[index].key = foodwithNewKey.key;
+		foodArr[index].key = oneFoodwithNewKey.key;
 		success = true;
 	} catch (exception e) {
 		cout << "increaseKey exception:\t" << e.what() << endl;
 	}
 
-	heapify(parent(index));
+	sort();
 
 	return success;
 }
@@ -114,15 +115,33 @@ bool Heap::increaseKey(int index, Food foodwithNewKey) {
 bool Heap::insert(int key, string foodName, double foodPrice) {
 	bool success = false; 
 	
-	if (size < capacity) {
-		Food newFood;
-		newFood.key = key;
-		newFood.foodName = foodName;
-		newFood.price = foodPrice;
-		foodArr[size] = newFood;
-		heapify(size);
-		size += 1;
-		success = true;
+	if (findByKey(key) == false) {
+		if (size < capacity) {
+			Food newFood;
+			newFood.key = key;
+			newFood.foodName = foodName;
+			newFood.price = foodPrice;
+			foodArr[size] = newFood;
+			size += 1;
+			sort();
+			success = true;
+		} else {
+			cout << "Reach the capacity limit. Double the capacity\n" << endl;
+
+			struct Food* tempArr = new Food[(capacity * 2) + 1];
+			for (int i = 0; i < size; i++) {
+				tempArr[i] = foodArr[i];
+			}
+			delete[] foodArr;
+			foodArr = tempArr;
+			capacity = 2 * capacity;
+			
+			printf("The new capacity now is %i\n\n", capacity);
+
+			success = insert(key, foodName, foodPrice);
+		}	
+	} else {
+		cout << "Duplicated food item. Not added\n" << endl;
 	}
 
 	return success;
@@ -141,17 +160,17 @@ int Heap::parent(int childIndex) {
 }
 
 void Heap::heapify(int index) {
-	int largest = index;
-	int left = LEFT(index);
-	int right = RIGHT(index);
+	int largest = index;  // 2
+	int left = LEFT(index); // 5
+	int right = RIGHT(index); // 6
 
 	// if left leaf is larger than root
-	if (left < size && foodArr[left].key > foodArr[largest].key) {
+	if (left <= size && foodArr[left].key > foodArr[largest].key) {
 		largest = left;
 	}
 
 	// if right leaf is larger than root
-	if (right < size && foodArr[right].key > foodArr[largest].key) {
+	if (right <= size && foodArr[right].key > foodArr[largest].key) {
 		largest = right;
 	}
 
@@ -181,7 +200,7 @@ void Heap::printHeap()
 
 void Heap::sort() {
 	for (int i = (size / 2) - 1; i >= 0; i--) {
-		heapify(i);
+		heapify(i);	
 	}
 }
 
@@ -197,4 +216,13 @@ void Heap::extractHeapMax() {
 
 	// call heapify
 	heapify(0);
+}
+
+bool Heap::findByKey(int foodKey) {
+	for (int i = 0; i < size; i++) {
+		if (foodArr[i].key == foodKey) {
+			return true;
+		}
+	}
+	return false;
 }

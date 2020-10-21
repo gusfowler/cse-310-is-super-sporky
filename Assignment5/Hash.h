@@ -1,6 +1,6 @@
 // ASU CSE310 Assignment #5
-// Name of Author:
-// ASU ID:
+// Name of Author: August Fowler
+// ASU ID: 1214774210
 // Description: this is where you need to design functions on Hash hashTable,
 // such as hashInsert, hashDelete, hashSearch and hashDisplay
 
@@ -41,6 +41,7 @@ Hash::Hash(int size)
 Hash::~Hash()
 {
 	//----
+      delete[] hashTable;
 }
 
 //hashInsert inserts a Food with the relevant info. into the hashTable.
@@ -48,6 +49,7 @@ Hash::~Hash()
 bool Hash::hashInsert(string foodID, string name, string supplierID, double price)
 {
 	//----
+      return hashTable[hashFunction(foodID + name + supplierID)].insertFood(foodID, name, supplierID, price);
 }
 
 //hashDelete deletes a Food with the relevant key from the hashTable.
@@ -56,11 +58,19 @@ bool Hash::hashInsert(string foodID, string name, string supplierID, double pric
 bool Hash::hashDelete(string foodID, string name, string supplierID)
 {
       //----
-      cout << "\n";
-      cout	<< setw(4) << foodID
-            << setw(30) << name
-            << setw(12) << supplierID
-            << " is deleted from hash table." << endl;
+      if (hashSearch(foodID, name, supplierID)) {
+            bool deleted = hashTable[hashFunction(foodID + name + supplierID)].deleteFood(foodID);
+
+            if (deleted) {
+                  cout << "\n";
+                  cout	<< setw(4) << foodID
+                        << setw(30) << name
+                        << setw(12) << supplierID
+                        << " is deleted from hash table." << endl;
+            }
+
+            return deleted;
+      } else { return false; }
 }
 
 //This function searches for a key inside the hash table and
@@ -69,6 +79,7 @@ bool Hash::hashDelete(string foodID, string name, string supplierID)
 bool Hash::hashSearch(string foodID, string name, string supplierID)
 {
     //----
+    bool found = hashTable[hashFunction(foodID + name + supplierID)].searchFood(foodID);
 
    if (found)
      cout   << "\n" << left
@@ -82,12 +93,19 @@ bool Hash::hashSearch(string foodID, string name, string supplierID)
             << setw(30) << name
             << setw(12) << supplierID
             << " is NOT found inside the hash table." << endl;
+
+      return found;
  }
 
 //This function prints all the elements from the hash hashTable.
 void Hash::hashDisplay()
 {
 	//----
+      for (int i = 0; i < m; i++) {
+            printf("hashTable[%i], size=%i", i, hashTable[i].getSize());
+            hashTable[i].displayList();
+            cout << "\n" << endl;
+      }
 	//----
 }
 
@@ -96,6 +114,21 @@ void Hash::hashDisplay()
 //will be hashed to
 int Hash::hashFunction(string key)
 {
-    //----
+      //----
+      int hash = 0;
+      //Create total of all ASCII values in key
+      int ASCII_total = 0;
 
+      int keyLength = key.length();
+      char* char_array = new char[keyLength + 1];
+      strcpy(char_array, key.c_str());
+
+      for (int i = 0; i < keyLength; i++) {
+            ASCII_total += char_array[i];
+      }
+
+      // hash by multiplication
+      float A = 2 / (sqrt(5) + 1);  //inverse fibonacci
+      hash = floor(m * (fmod((ASCII_total * A), 1)));
+      return hash;
 }

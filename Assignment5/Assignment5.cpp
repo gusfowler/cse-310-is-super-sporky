@@ -1,16 +1,20 @@
 // ASU CSE310 Assignment #5
-// Name of Author:
-// ASU ID:
+// Name of Author: August Fowler
+// ASU ID: 1214774210
 // Description: this is the main program that reads input from keyboard,
 // it then call hash functions to execute hash commands given in the input.
 
 /**************************************************************************
 //(1)Describe here what is your hash function?
+//    - Hash by multiplication
 //(2)What is the number of collisions you expected?
+//    - 10
 //(3)Did your hash function work well? Using the test cases, what's your hash
 //   table's load factor?
+//    - 10
 //(4)If you had to change your hash function to reduce the number of collisions,
 //   how will you change it?
+//    - No change
 //----
 ***************************************************************************/
 
@@ -45,6 +49,7 @@ int main()
 
 	//declare any other necessary variables here
    //----
+   string oneLine = "";
 
     cout << "Enter the size of the hash table: ";
 	cin >> size;
@@ -52,6 +57,7 @@ int main()
 
    //create the hash table with the relevant number of slots
 	//----
+   Hash hashTable = Hash(size);
 
  do {
 		cout << "\nEnter food info.(enter InsertionEnd to terminate): " << endl;
@@ -62,6 +68,8 @@ int main()
       //if command is not InsertionEnd
       //Get one line, call getFoodInfo(), then
       //insert the new Food inside the hash table
+      getFoodInfo(oneLine, FoodID, name, supplierID, price);
+      hashTable.hashInsert(FoodID, name, supplierID, price);
       //----
 
 	} while(true);
@@ -72,10 +80,25 @@ int main()
 	for(int i= 0; i < numOfCommand; i++)
    {
  		//get one line from the input file and extract the first token,
+      getline(cin, oneLine);
+      
  		//if the token is hashDisplay, call the relevant function in Hash.h
+       if (oneLine.compare("hashDisplay") == 0) {
+          hashTable.hashDisplay();
+       } else {
+          getKey(oneLine, FoodID, name, supplierID, command);
+          if (command.compare("hashSearch") == 0) {
+             hashTable.hashSearch(FoodID, name, supplierID);
+          } else if (command.compare("hashDelete") == 0) {
+             hashTable.hashDelete(FoodID, name, supplierID);
+          } else {
+             cout << "Invalid command" << endl;
+          }
+       }
  		//-----
 
  		//if the token is hashSearch, call the relevant function in Hash.h
+       
  		//----
 
  		//if the token is hashDelete, call the relevant function in Hash.h
@@ -99,6 +122,25 @@ void getFoodInfo(string oneLine, string& FoodID, string& name, string& supplierI
 
    //finish the remaining codes below
    //----
+   int pos=oneLine.find(delimiter);
+	 string token = oneLine.substr(0,pos);
+	 FoodID = token;
+	 oneLine.erase(0, pos+delimiter.length());
+
+    int pos=oneLine.find(delimiter);
+	 string token = oneLine.substr(0,pos);
+	 name = token;
+	 oneLine.erase(0, pos+delimiter.length());
+
+    int pos=oneLine.find(delimiter);
+	 string token = oneLine.substr(0,pos);
+	 supplierID = token;
+	 oneLine.erase(0, pos+delimiter.length());
+
+    int pos=oneLine.find(delimiter);
+	 string token = oneLine.substr(0,pos);
+	 price = stod(token);
+	 oneLine.erase(0, pos+delimiter.length());
    //----
 
    //Note: you can use stod to convert a string into double
@@ -111,17 +153,17 @@ void getFoodInfo(string oneLine, string& FoodID, string& name, string& supplierI
 //These info. forms the key of a Food.
 //This function is given to you. Study it.
 //********************************************************************
-void getKey(string oneLine, string& FoodID, string& name, string& supplierID)
+void getKey(string oneLine, string& FoodID, string& name, string& supplierID, string& command)
 {
   string delimiter = ",";
     int pos=oneLine.find(delimiter);
 	 string token = oneLine.substr(0,pos);
-	 string command = token;
+	 command = token;
 	 oneLine.erase(0, pos+delimiter.length());
 
 	pos=oneLine.find(delimiter);
 	token = oneLine.substr(0,pos);
-	foodID = token;
+	FoodID = token;
 	oneLine.erase(0, pos+delimiter.length());
 
 	pos=oneLine.find(delimiter);

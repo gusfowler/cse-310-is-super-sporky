@@ -1,6 +1,6 @@
 // ASU CSE310 Assignment #5
-// Name of Author:
-// ASU ID:
+// Name of Author: August Fowler
+// ASU ID: 1214774210
 // Description: A simple linked list that implements a list of Food objects. A user can
 //              perform searching, insertion or deletion on the linked list.
 
@@ -44,6 +44,14 @@ LinkedList::LinkedList()
 LinkedList::~LinkedList()
 {
 	//----
+	if (head != NULL) {
+		struct Food *current = head;
+		while (current != NULL) {
+			struct Food *toDelete = current;
+			current = current->next;
+			delete toDelete;
+		}
+	}
 }
 
 //Accessor for the head
@@ -63,6 +71,27 @@ int LinkedList::getSize()
 bool LinkedList::insertFood(string foodID, string name, string supplierID, double price)
 {
     //----
+	bool success = false;
+
+	struct Food newFood;
+	newFood.foodID = foodID;
+	newFood.name = name;
+	newFood.supplierID = supplierID;
+	newFood.price = price;
+	newFood.next = NULL;
+
+	if (head == NULL) {
+		head = &newFood;
+		size = 1;
+		success = true;
+	} else {
+		newFood.next = head;
+		head = &newFood;
+		size += 1;
+		success = true;
+	}
+
+	return success;
  }
 
 //Delete the food with the given foodID from the linked list.
@@ -70,6 +99,26 @@ bool LinkedList::insertFood(string foodID, string name, string supplierID, doubl
 bool LinkedList::deleteFood(string foodID)
 {
 	//----
+	bool success = false;
+
+	if (head != NULL) {
+		struct Food *current = head;
+		struct Food *previous = NULL;
+		while (current != NULL) {
+			if (current->foodID.compare(foodID) == 0) {
+				if (previous == NULL) {
+					head = current->next;
+					delete current;
+					size -= 1;
+					success = true;
+				}
+			}
+			previous = current;
+			current = current->next;
+		}
+	}
+
+	return success;
 }
 
 //This function searches the food list with the given foodID
@@ -77,6 +126,20 @@ bool LinkedList::deleteFood(string foodID)
 bool LinkedList::searchFood(string foodID)
 {
 	//----
+	bool success = false;
+
+	if (head != NULL) {
+		struct Food *current = head;
+		while (current != NULL) {
+			if (current->foodID.compare(foodID) == 0) {
+				success = true;
+				return success;
+			}
+			current = current->next;
+		}
+	}
+
+	return success;
 }
 
 //This function displays the content of the linked list.

@@ -86,7 +86,7 @@ bool LinkedList::insertFood(string foodID, string name, string supplierID, doubl
 		success = true;
 	} else {
 		newFood.next = head;
-		head = &newFood;
+		(*head) = &newFood;
 		size += 1;
 		success = true;
  	}

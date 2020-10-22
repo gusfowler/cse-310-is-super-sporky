@@ -1,0 +1,7 @@
+5
+P1,Chais,Supplier1,18.50
+P2,Chef Anton's Cajun Seasoning,Supplier2,22.75
+P3,Chang,Supplier5,19.99
+InsertionEnd
+1
+hashDisplay

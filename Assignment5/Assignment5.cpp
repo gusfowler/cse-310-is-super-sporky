@@ -30,18 +30,18 @@ void getFoodInfo(string oneLine, string& FoodID, string& name, string& supplierI
 
 //This function extracts tokens from oneLine and get a Food key which is
 //the combination of FoodID, name and supplierID
-void getKey(string oneLine, string& FoodID, string& name, string& supplierID);
+void getKey(string oneLine, string& FoodID, string& name, string& supplierID, string& command);
 
 int main()
 {
-    //a variable represents the number of hash table slots
-    int size;
+   //a variable represents the number of hash table slots
+   int size;
 
-    //a variable represents the number of commands
-    int numOfCommand;
+   //a variable represents the number of commands
+   int numOfCommand;
 
-    //a variable represents the actual command name
-    string command;
+   //a variable represents the actual command name
+   string command;
 
    string FoodID, name, supplierID;
    double price;
@@ -51,7 +51,7 @@ int main()
    //----
    string oneLine = "";
 
-    cout << "Enter the size of the hash table: ";
+   cout << "Enter the size of the hash table: ";
 	cin >> size;
    cin.ignore(20, '\n');
 
@@ -59,7 +59,7 @@ int main()
 	//----
    Hash hashTable = Hash(size);
 
- do {
+   do {
 		cout << "\nEnter food info.(enter InsertionEnd to terminate): " << endl;
 		getline(cin, oneLine);
 		if(oneLine.compare("InsertionEnd") == 0)
@@ -73,28 +73,30 @@ int main()
       //----
 
 	} while(true);
-
-    cin >> numOfCommand;
-    cin.ignore(20, '\n');
+   
+   cout << "Enter number of commands: " << endl;
+   cin >> numOfCommand;
+   cin.ignore(20, '\n');
 
 	for(int i= 0; i < numOfCommand; i++)
    {
- 		//get one line from the input file and extract the first token,
+ 	   //get one line from the input file and extract the first token,
+      cout << "\nEnter command:" << endl; 
       getline(cin, oneLine);
       
  		//if the token is hashDisplay, call the relevant function in Hash.h
-       if (oneLine.compare("hashDisplay") == 0) {
-          hashTable.hashDisplay();
-       } else {
-          getKey(oneLine, FoodID, name, supplierID, command);
-          if (command.compare("hashSearch") == 0) {
-             hashTable.hashSearch(FoodID, name, supplierID);
-          } else if (command.compare("hashDelete") == 0) {
-             hashTable.hashDelete(FoodID, name, supplierID);
-          } else {
-             cout << "Invalid command" << endl;
-          }
-       }
+      
+      getKey(oneLine, FoodID, name, supplierID, command);
+      if (command.compare("hashDisplay") == 0) {
+         hashTable.hashDisplay();
+      } else if (command.compare("hashSearch") == 0) {
+         hashTable.hashSearch(FoodID, name, supplierID);
+      } else if (command.compare("hashDelete") == 0) {
+         hashTable.hashDelete(FoodID, name, supplierID);
+      } else {
+         cout << "Invalid command" << endl;
+      }
+      
  		//-----
 
  		//if the token is hashSearch, call the relevant function in Hash.h
@@ -127,18 +129,18 @@ void getFoodInfo(string oneLine, string& FoodID, string& name, string& supplierI
 	 FoodID = token;
 	 oneLine.erase(0, pos+delimiter.length());
 
-    int pos=oneLine.find(delimiter);
-	 string token = oneLine.substr(0,pos);
+    pos=oneLine.find(delimiter);
+	 token = oneLine.substr(0,pos);
 	 name = token;
 	 oneLine.erase(0, pos+delimiter.length());
 
-    int pos=oneLine.find(delimiter);
-	 string token = oneLine.substr(0,pos);
+    pos=oneLine.find(delimiter);
+	 token = oneLine.substr(0,pos);
 	 supplierID = token;
 	 oneLine.erase(0, pos+delimiter.length());
 
-    int pos=oneLine.find(delimiter);
-	 string token = oneLine.substr(0,pos);
+    pos=oneLine.find(delimiter);
+	 token = oneLine.substr(0,pos);
 	 price = stod(token);
 	 oneLine.erase(0, pos+delimiter.length());
    //----
@@ -155,7 +157,7 @@ void getFoodInfo(string oneLine, string& FoodID, string& name, string& supplierI
 //********************************************************************
 void getKey(string oneLine, string& FoodID, string& name, string& supplierID, string& command)
 {
-  string delimiter = ",";
+   string delimiter = ",";
     int pos=oneLine.find(delimiter);
 	 string token = oneLine.substr(0,pos);
 	 command = token;

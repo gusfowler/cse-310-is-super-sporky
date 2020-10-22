@@ -1,0 +1,124 @@
+11
+P1,Chais,Supplier1,18.25
+P2,Chang,Supplier10,19.78
+P3,Aniseed Syrup,Supplier1,10.00
+P4,Chef Anton's Cajun Seasoning,Supplier2,22.65
+P5,Chef Anton's Gumbo Mix,Supplier27,21.35
+P6,Grandma's Boysenberry Spread,Supplier3,25.00
+P7,Uncle Bob's Organic Pears,Supplier31,30.00
+P8,Northwoods Cranberry Sauce,Supplier3,40.37
+P9,Mishi Kobe Niku,Supplier4,97.00
+P10,Ikura,Supplier42,31.00
+P11,Queso Cabrales,Supplier5,21.00
+P12,Queso Manchego La Pastora,Supplier5,38.00
+P13,Konbu,Supplier6,6.25
+P14,Tofu,Supplier61,23.25
+P15,Genen Shouyu,Supplier6,15.50
+P16,Pavlova,Supplier7,17.45
+P17,Alice Mutton,Supplier72,39.00
+P18,Carnarvon Tigers,Supplier7,62.50
+P19,Teatime Chocolate Biscuits,Supplier8,9.20
+P20,Sir Rodney's Marmalade,Supplier8,81.00
+P21,Sir Rodney's Scones,Supplier82,10.00
+P22,Gustaf's Knackebrod,Supplier9,21.00
+P23,Tunnbrod,Supplier9,9.00
+P24,Guarana Fantastica,Supplier10,4.50
+P25,NuNuCa Nub-Nougat-Creme,Supplier11,14.00
+P26,Gumbar Gummibarchen,Supplier17,31.23
+P27,Schoggi Schokolade,Supplier11,43.90
+P28,Rossle Sauerkraut,Supplier12,45.60
+P29,Thuringer Rostbratwurst,Supplier16,123.79
+P30,Nord-Ost Matjeshering,Supplier13,25.89
+P31,Gorgonzola Telino,Supplier14,12.50
+P32,Mascarpone Fabioli,Supplier14,32.00
+P33,Geitost,Supplier15,2.50
+P34,Sasquatch Ale,Supplier12,14.00
+P35,Steeleye Stout,Supplier16,18.00
+P36,Inlagd Sill,Supplier17,19.00
+P37,Gravad lax,Supplier31,26.00
+P38,Cote de Blaye,Supplier18,263.50
+P39,Chartreuse verte,Supplier10,18.00
+P40,Boston Crab Meat,Supplier19,18.40
+P41,Jack's New Clam Chowder,Supplier19,9.65
+P42,Singaporean Hokkien Fried Mee,Supplier20,14.00
+P43,Ipoh Coffee,Supplier27,46.00
+P44,Gula Malacca,Supplier20,19.45
+P45,Rogede sild,Supplier21,9.50
+P46,Spegesild,Supplier290,12.00
+P47,Zaanse koeken,Supplier22,9.50
+P48,Chocolade,Supplier22,12.75
+P49,Maxilaku,Supplier23,20.00
+P50,Valkoinen suklaa,Supplier23,16.25
+P51,Manjimup Dried Apples,Supplier42,53.00
+P52,Filo Mix,Supplier24,7.00
+P53,Perth Pasties,Supplier29,32.80
+P54,Tourtiere,Supplier25,7.45
+P55,Pate chinois,Supplier25,24.00
+P56,Gnocchi di nonna Alice,Supplier26,38.00
+P57,Ravioli Angelo,Supplier26,19.50
+P58,Escargots de Bourgogne,Supplier27,13.25
+P59,Raclette Courdavault,Supplier28,55.00
+P60,Camembert Pierrot,Supplier28,34.00
+P61,Sirop d'erable,Supplier29,28.50
+P62,Tarte au sucre,Supplier29,49.30
+P63,Vegie-spread,Supplier7,43.90
+P64,Wimmers gute Semmelknodel,Supplier12,33.25
+P65,Louisiana Fiery Pepper Sauce,Supplier2,21.05
+P66,Louisiana Hot Spiced Okra,Supplier2,17.00
+P67,Laughing Lumberjack Lager,Supplier16,14.99
+P68,Scottish Longbreads,Supplier8,12.50
+P69,Gudbrandsdalsost,Supplier15,36.75
+P70,Outback Lager,Supplier7,15.00
+P71,Flotemysost,Supplier15,21.50
+P72,Mozzarella di Giovanni,Supplier14,34.80
+P73,Rod Kaviar,Supplier17,15.00
+P74,Longlife Tofu,Supplier4,10.00
+P75,Rhonbrau Klosterbier,Supplier12,7.75
+P76,Lakkalikoori,Supplier23,18.00
+P77,Original grune Sobe,Supplier12,13.25
+P78,Mascarpone Fabioli,Supplier13,16.25
+P79,Geitost,Supplier14,23.25
+P80,Sasquatch Ale,Supplier42,15.50
+P81,Steeleye Stout,Supplier5,17.45
+P82,Inlagd Sill ,Supplier5,23.50
+P83,Gravad lax,Supplier6,97.00
+P84,Cte de Blaye,Supplier61,31.00
+P85,Chartreuse verte,Supplier6,21.00
+P86,Boston Crab Meat,Supplier21,38.00
+P87,Jack's New Clam Chowder,Supplier22,6.25
+P88,Hokkien Fried Mee,Supplier23,23.25
+P89,Ipoh Coffee ,Supplier24,15.50
+P90,Gula Malacca,Supplier25,17.45
+P91,Rogede sild,Supplier26,263.50
+P92,Spegesild,Supplier27,18.00
+P93,Zaanse koeken,Supplier29,18.40
+P94,Chocolade ,Supplier7,9.65
+P95,Maxilaku,Supplier12,14.00
+P96,Valkoinen suklaa,Supplier2,46.00
+P97,Gnocchi di nonna Alic,Supplier2,19.45
+P98,Ravioli Angelo,Supplier16,9.50
+P99,Escargots de Bourgogne,Supplier8,22.65
+P100,Raclette Courdavault,Supplier15,21.35
+P101,Camembert Pierrot,Supplier3,25.00
+P102,Sirop d'rable,Supplier4,63.50
+P103,Tarte au sucre,Supplier42,8.25
+P104,Vegie spread,Supplier5,18.40
+P105,Wimmers gute Semmelknd,Supplier5,9.65
+P106,Louisiana Fiery Sauce,Supplier6,14.00
+P107,Louisiana Hot Spiced Okra,Supplier61,26.00
+P108,Laughing Lumberjack Lager,Supplier43,19.45
+P109,Scottish Longbreads,Supplier44,9.50
+InsertionEnd
+12
+hashDisplay
+hashSearch,P77,Original Frankfurter grune Sobe,Supplier12
+hashSearch,P36,Spegesild,Supplier27
+hashDelete,P36,Inlagd Sill,Supplier17
+hashSearch,P72,Mozzarella di Giovanni,Supplier14
+hashDelete,P18,Gnocchi di nonna Alic,Supplier2
+hashDelete,P97,Longlife Tofu,Supplier4
+hashDelete,P68,Scottish Longbreads,Supplier8,
+hashDelete,P17,Alice Mutton,Supplier7,Category6
+hashDelete,P1,Chais,Supplier1
+hashDelete,P109,Scottish Longbreads,Supplier44
+hashDisplay

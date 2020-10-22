@@ -89,8 +89,8 @@ bool LinkedList::insertFood(string foodID, string name, string supplierID, doubl
 		head = &newFood;
 		size += 1;
 		success = true;
-	}
-
+ 	}
+	this->displayList();
 	return success;
  }
 
@@ -111,13 +111,15 @@ bool LinkedList::deleteFood(string foodID)
 					delete current;
 					size -= 1;
 					success = true;
+				} else {
+					previous->next = current->next;
+					delete current;
 				}
 			}
 			previous = current;
 			current = current->next;
 		}
 	}
-
 	return success;
 }
 
@@ -145,7 +147,8 @@ bool LinkedList::searchFood(string foodID)
 //This function displays the content of the linked list.
 void LinkedList::displayList()
 {
-   struct Food *temp = head;
+	cout << "Hit DisplayList" << endl;
+    struct Food *temp = head;
 	if(head == NULL)
     {
 		return;

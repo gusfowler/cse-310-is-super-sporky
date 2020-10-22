@@ -1,0 +1,21 @@
+7
+P1,Chais,Supplier1,18.25
+P2,Chang,Supplier2,19.75
+P3,Aniseed Syrup,Supplier1,10.52
+P4,Chef Anton's Cajun Seasoning,Supplier2,22.75
+P5,Chef Anton's Gumbo Mix,Supplier2,21.35
+P6,Grandma's Boysenberry Spread,Supplier3,25.27
+P7,Uncle Bob Organic Dried Pears,Supplier3,30.99
+P8,Northwood Cranberry Sauce,Supplier3,40.28
+InsertionEnd
+7
+hashSearch,P1,Chais,Supplier1
+hashDisplay
+hashDelete,P8,Northwood Cranberry Sauce,Supplier3
+hashDelete,P6,Grandma's Boysenberry Spread,Supplier3
+hashSearch,P17,Alice Mutton,Supplier7
+hashDelete,P18,Phoenix Cranberry Sauce,Supplier8
+hashDisplay
+hashDelete,P1,Chais,Supplier1
+hashDelete,P2,Chang,Supplier2
+hashDelete,P3,Aniseed Syrup,Supplier1

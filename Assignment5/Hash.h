@@ -8,23 +8,24 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <cstring>
 #include <math.h>
 
 using namespace std;
 
 class Hash
 {
-    private:
+      private:
 		LinkedList* hashTable;     //hashTable is a one-dimensional array of LinkedList
 		int m;                     //slots number of the hash table
 	public:
-      Hash(int size);
-      ~Hash();
-      bool hashInsert(string foodID, string name, string supplierID, double price);
-      bool hashDelete(string foodID, string name, string supplierID);
-      bool hashSearch(string foodID, string name, string supplierID);
-      void hashDisplay();
-      int hashFunction(string key);
+            Hash(int size);
+            ~Hash();
+            bool hashInsert(string foodID, string name, string supplierID, double price);
+            bool hashDelete(string foodID, string name, string supplierID);
+            bool hashSearch(string foodID, string name, string supplierID);
+            void hashDisplay();
+            int hashFunction(string key);
 
       //add any other auxiliary functions here
       //----
@@ -49,7 +50,11 @@ Hash::~Hash()
 bool Hash::hashInsert(string foodID, string name, string supplierID, double price)
 {
 	//----
-      return hashTable[hashFunction(foodID + name + supplierID)].insertFood(foodID, name, supplierID, price);
+      int hash = hashFunction(foodID + name + supplierID);
+      hash = 0;
+      printf("slot index = %i", hash);
+      cout << endl;
+      return hashTable[hash].insertFood(foodID, name, supplierID, price);
 }
 
 //hashDelete deletes a Food with the relevant key from the hashTable.
@@ -81,18 +86,18 @@ bool Hash::hashSearch(string foodID, string name, string supplierID)
     //----
     bool found = hashTable[hashFunction(foodID + name + supplierID)].searchFood(foodID);
 
-   if (found)
-     cout   << "\n" << left
-            << setw(4) << foodID
-            << setw(30) << name
-            << setw(12) << supplierID
-            << " is found inside the hash table." << endl;
-	if(!found)
-      cout	<< "\n" << left
-            << setw(4) << foodID
-            << setw(30) << name
-            << setw(12) << supplierID
-            << " is NOT found inside the hash table." << endl;
+      if (found)
+            cout  << "\n" << left
+                  << setw(4) << foodID
+                  << setw(30) << name
+                  << setw(12) << supplierID
+                  << " is found inside the hash table." << endl;
+      if(!found)
+            cout	<< "\n" << left
+                  << setw(4) << foodID
+                  << setw(30) << name
+                  << setw(12) << supplierID
+                  << " is NOT found inside the hash table." << endl;
 
       return found;
  }
@@ -102,9 +107,12 @@ void Hash::hashDisplay()
 {
 	//----
       for (int i = 0; i < m; i++) {
-            printf("hashTable[%i], size=%i", i, hashTable[i].getSize());
-            hashTable[i].displayList();
-            cout << "\n" << endl;
+            if (hashTable[i].getSize() == 0) {
+                  printf("\nhashTable[%i] is empty, size=%i", i, hashTable[i].getSize());
+            } else {
+                  printf("\nhashTable[%i], size=%i\n", i, hashTable[i].getSize());
+                  hashTable[i].displayList();
+            }
       }
 	//----
 }

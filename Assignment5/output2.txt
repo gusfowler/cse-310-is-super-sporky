@@ -1,0 +1,35 @@
+Enter the size of the hash table: 
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 0
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 0
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 2
+
+Enter food info.(enter InsertionEnd to terminate): 
+
+Enter number of commands: 
+Enter command: 
+
+P1  Chais                         Supplier1    is found inside the hash table.
+
+Enter command: 
+
+P8  Northwood Cranberry Sauce     Supplier3    is NOT found inside the hash table.
+
+Enter command: 
+
+HashTable[0], size = 2
+P2  Chef Anton's Cajun Seasoning  Supplier2   22.75   
+P1  Chais                         Supplier1   18.25   
+
+HashTable[1] is empty, size = 0
+
+HashTable[2], size = 1
+P3  Chang                         Supplier5   19.99   
+
+HashTable[3] is empty, size = 0
+
+HashTable[4] is empty, size = 0

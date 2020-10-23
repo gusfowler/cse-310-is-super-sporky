@@ -74,14 +74,14 @@ int main()
 
 	} while(true);
    
-   cout << "Enter number of commands: " << endl;
+   cout << "\nEnter number of commands: " << endl;
    cin >> numOfCommand;
    cin.ignore(20, '\n');
 
 	for(int i= 0; i < numOfCommand; i++)
    {
  	   //get one line from the input file and extract the first token,
-      cout << "\nEnter command:" << endl; 
+      cout << "Enter command:" << endl; 
       getline(cin, oneLine);
       
  		//if the token is hashDisplay, call the relevant function in Hash.h

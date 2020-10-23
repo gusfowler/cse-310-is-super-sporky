@@ -1,0 +1,83 @@
+Enter the size of the hash table: 
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 1
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 0
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 2
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 1
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 0
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 3
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 2
+
+Enter food info.(enter InsertionEnd to terminate): 
+slot index = 0
+
+Enter food info.(enter InsertionEnd to terminate): 
+
+Enter number of commands: 
+Enter command:
+
+P1  Chais                         Supplier1    is found inside the hash table.
+Enter command:
+
+hashTable[0], size=3P8  Northwood Cranberry Sauce     Supplier3   40.28   
+P5  Chef Anton's Gumbo Mix        Supplier2   21.35   
+P2  Chang                         Supplier2   19.75   
+
+hashTable[1], size=2P4  Chef Anton's Cajun Seasoning  Supplier2   22.75   
+P1  Chais                         Supplier1   18.25   
+
+hashTable[2], size=2P7  Uncle Bob Organic Dried Pears Supplier3   30.99   
+P3  Aniseed Syrup                 Supplier1   10.52   
+
+hashTable[3], size=1P6  Grandma's Boysenberry Spread  Supplier3   25.27   
+
+hashTable[4] is empty, size=0
+hashTable[5] is empty, size=0
+hashTable[6] is empty, size=0Enter command:
+
+P8  Northwood Cranberry Sauce     Supplier3    is found inside the hash table.
+
+P8  Northwood Cranberry Sauce     Supplier3    is deleted from hash table.
+
+Enter command:
+
+P6  Grandma's Boysenberry Spread  Supplier3    is found inside the hash table.
+
+P6  Grandma's Boysenberry Spread  Supplier3    is deleted from hash table.
+
+Enter command:
+
+P17 Alice Mutton                  Supplier7    is NOT found inside the hash table.
+Enter command:
+
+P18 Phoenix Cranberry Sauce       Supplier8    is NOT found inside the hash table.
+
+P18 Phoenix Cranberry Sauce       Supplier8    is NOT deleted from hash table.
+
+Enter command:
+
+hashTable[0], size=2P5  Chef Anton's Gumbo Mix        Supplier2   21.35   
+P2  Chang                         Supplier2   19.75   
+
+hashTable[1], size=2P4  Chef Anton's Cajun Seasoning  Supplier2   22.75   
+P1  Chais                         Supplier1   18.25   
+
+hashTable[2], size=2P7  Uncle Bob Organic Dried Pears Supplier3   30.99   
+P3  Aniseed Syrup                 Supplier1   10.52   
+
+hashTable[3] is empty, size=0
+hashTable[4] is empty, size=0
+hashTable[5] is empty, size=0
+hashTable[6] is empty, size=0

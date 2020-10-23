@@ -51,7 +51,7 @@ bool Hash::hashInsert(string foodID, string name, string supplierID, double pric
 {
 	//----
       int hash = hashFunction(foodID + name + supplierID);
-      hash = 0;
+      //hash = 0;
       printf("slot index = %i", hash);
       cout << endl;
       return hashTable[hash].insertFood(foodID, name, supplierID, price);
@@ -71,11 +71,24 @@ bool Hash::hashDelete(string foodID, string name, string supplierID)
                   cout	<< setw(4) << foodID
                         << setw(30) << name
                         << setw(12) << supplierID
-                        << " is deleted from hash table." << endl;
+                        << " is deleted from hash table.\n" << endl;
+            } else {
+                  cout << "\n";
+                  cout	<< setw(4) << foodID
+                        << setw(30) << name
+                        << setw(12) << supplierID
+                        << " is NOT deleted from hash table.\n" << endl;
             }
 
             return deleted;
-      } else { return false; }
+      } else { 
+            cout  << "\n";
+            cout	<< setw(4) << foodID
+                  << setw(30) << name
+                  << setw(12) << supplierID
+                  << " is NOT deleted from hash table.\n" << endl;
+            return false; 
+      }
 }
 
 //This function searches for a key inside the hash table and
@@ -110,7 +123,7 @@ void Hash::hashDisplay()
             if (hashTable[i].getSize() == 0) {
                   printf("\nhashTable[%i] is empty, size=%i", i, hashTable[i].getSize());
             } else {
-                  printf("\nhashTable[%i], size=%i\n", i, hashTable[i].getSize());
+                  printf("\nhashTable[%i], size=%i", i, hashTable[i].getSize());
                   hashTable[i].displayList();
             }
       }

@@ -72,25 +72,29 @@ bool LinkedList::insertFood(string foodID, string name, string supplierID, doubl
 {
     //----
 	bool success = false;
+	bool foodExists = searchFood(foodID);
 
-	struct Food newFood;
-	newFood.foodID = foodID;
-	newFood.name = name;
-	newFood.supplierID = supplierID;
-	newFood.price = price;
-	newFood.next = NULL;
+	if (!foodExists) {
+		struct Food *newFood = new Food();
+		newFood->foodID = foodID;
+		newFood->name = name;
+		newFood->supplierID = supplierID;
+		newFood->price = price;
+		newFood->next = NULL;
 
-	if (head == NULL) {
-		head = &newFood;
-		size = 1;
-		success = true;
-	} else {
-		newFood.next = head;
-		head = &newFood;
-		size += 1;
-		success = true;
- 	}
-	this->displayList();
+		if (head == NULL) {
+			head = newFood;
+			size = 1;
+			success = true;
+		} else {
+			newFood->next = head;
+			head = newFood;
+			size += 1;
+			success = true;
+		}
+	}
+
+	
 	return success;
  }
 
@@ -147,7 +151,6 @@ bool LinkedList::searchFood(string foodID)
 //This function displays the content of the linked list.
 void LinkedList::displayList()
 {
-	cout << "Hit DisplayList" << endl;
     struct Food *temp = head;
 	if(head == NULL)
     {

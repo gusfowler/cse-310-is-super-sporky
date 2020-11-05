@@ -1,0 +1,156 @@
+
+Command: tree_insert
+P2   Chang                              Supplier1      19.00
+
+Command: tree_insert
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00
+
+Command: tree_insert
+P5   Chef Anton Gumbo Mix               Supplier2      21.35
+
+Command: tree_insert
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.00
+
+Command: tree_insert
+P1   Chais                              Supplier1      18.00
+
+Command: tree_insert
+P3   Aniseed Syrup                      Supplier1      10.00
+
+Command: tree_insert
+P6   Grandma Boysenberry Spread         Supplier3      25.00
+
+Command: tree_insert
+P8   Northwoods Cranberry Sauce         Supplier3      40.00
+
+Command: tree_inorder
+P1   Chais                              Supplier1      18.00  RED    
+P2   Chang                              Supplier1      19.00  BLACK  
+P3   Aniseed Syrup                      Supplier1      10.00  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00  BLACK  
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P6   Grandma Boysenberry Spread         Supplier3      25.00  RED    
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.00  BLACK  
+P8   Northwoods Cranberry Sauce         Supplier3      40.00  RED    
+
+Command: tree_predecessor
+P1   Chais                              Supplier1       is FOUND.
+Its Predecessor does NOT EXIST
+
+Command: tree_predecessor
+P5   Chef Anton Gumbo Mix               Supplier2       is FOUND.
+Its Predecessor is: 
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00  BLACK  
+
+Command: tree_successor
+P4   Chef Anton Cajun Seasoning         Supplier2       is FOUND.
+Its Successor is: 
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+
+Command: tree_successor
+P8   Northwoods Cranberry Sauce         Supplier3       is FOUND.
+Its Successor does NOT EXIST
+
+Command: tree_insert
+P9   Mishi Kobe Niku                    Supplier4      97.00
+
+Command: tree_minimum
+The MINIMUM is:
+P1   Chais                              Supplier1      18.00  RED    
+
+Command: tree_maximum
+The MAXIMUM is:
+P9   Mishi Kobe Niku                    Supplier4      97.00  RED    
+
+Command: tree_preorder
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00  BLACK  
+P2   Chang                              Supplier1      19.00  BLACK  
+P1   Chais                              Supplier1      18.00  RED    
+P3   Aniseed Syrup                      Supplier1      10.00  RED    
+P6   Grandma Boysenberry Spread         Supplier3      25.00  RED    
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P8   Northwoods Cranberry Sauce         Supplier3      40.00  BLACK  
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.00  RED    
+P9   Mishi Kobe Niku                    Supplier4      97.00  RED    
+
+Command: tree_postorder
+P1   Chais                              Supplier1      18.00  RED    
+P3   Aniseed Syrup                      Supplier1      10.00  RED    
+P2   Chang                              Supplier1      19.00  BLACK  
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.00  RED    
+P9   Mishi Kobe Niku                    Supplier4      97.00  RED    
+P8   Northwoods Cranberry Sauce         Supplier3      40.00  BLACK  
+P6   Grandma Boysenberry Spread         Supplier3      25.00  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00  BLACK  
+
+Command: tree_insert
+P14  Tofu                               Supplier6      23.25
+
+Command: tree_insert
+P28  Rossle Sauerkraut                  Supplier12     45.60
+
+Command: tree_insert
+P17  Original Frankfurter grune Sobe    Supplier12     13.00
+
+Command: tree_insert
+P30  Schoggi Schokolade                 Supplier11     43.90
+
+Command: tree_insert
+P28  Rossle Sauerkraut                  Supplier12     45.60
+
+Command: tree_insert
+P29  Thuringer Rostbratwurst            Supplier16     123.79
+
+Command: tree_insert
+P31  Nord-Ost Matjeshering              Supplier13     25.89
+
+Command: tree_insert
+P43  Gorgonzola Telino                  Supplier14     12.50
+
+Command: tree_insert
+P32  Mascarpone Fabioli                 Supplier14     32.00
+
+Command: tree_insert
+P62  Tarte au sucre                     Supplier29     49.30
+
+Command: tree_search
+P4   Chef Anton Cajun Seasoning         Supplier2       is FOUND.
+
+Command: tree_predecessor
+P62  Tarte au sucre                     Supplier29      is FOUND.
+Its Predecessor is: 
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+
+Command: tree_successor
+P29  Thuringer Rostbratwurst            Supplier16      is FOUND.
+Its Successor is: 
+P2   Chang                              Supplier1      19.00  BLACK  
+
+Command: tree_maximum
+The MAXIMUM is:
+P9   Mishi Kobe Niku                    Supplier4      97.00  RED    
+
+Command: tree_inorder
+P14  Tofu                               Supplier6      23.25  BLACK  
+P17  Original Frankfurter grune Sobe    Supplier12     13.00  RED    
+P1   Chais                              Supplier1      18.00  RED    
+P28  Rossle Sauerkraut                  Supplier12     45.60  RED    
+P28  Rossle Sauerkraut                  Supplier12     45.60  BLACK  
+P29  Thuringer Rostbratwurst            Supplier16     123.79 RED    
+P2   Chang                              Supplier1      19.00  BLACK  
+P30  Schoggi Schokolade                 Supplier11     43.90  BLACK  
+P31  Nord-Ost Matjeshering              Supplier13     25.89  RED    
+P32  Mascarpone Fabioli                 Supplier14     32.00  RED    
+P3   Aniseed Syrup                      Supplier1      10.00  BLACK  
+P43  Gorgonzola Telino                  Supplier14     12.50  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.00  BLACK  
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P62  Tarte au sucre                     Supplier29     49.30  RED    
+P6   Grandma Boysenberry Spread         Supplier3      25.00  BLACK  
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.00  RED    
+P8   Northwoods Cranberry Sauce         Supplier3      40.00  BLACK  
+P9   Mishi Kobe Niku                    Supplier4      97.00  RED    
+
+Command: quit
+The number of nodes deleted: 19

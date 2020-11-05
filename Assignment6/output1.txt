@@ -1,0 +1,57 @@
+
+Command: tree_insert
+P2   Chang                              Supplier1      19.50
+
+Command: tree_insert
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75
+
+Command: tree_insert
+P5   Chef Anton Gumbo Mix               Supplier2      21.35
+
+Command: tree_insert
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.70
+
+Command: tree_insert
+P1   Chais                              Supplier1      18.00
+
+Command: tree_insert
+P3   Aniseed Syrup                      Supplier1      12.99
+
+Command: tree_insert
+P6   Grandma Boysenberry Spread         Supplier3      25.50
+
+Command: tree_insert
+P8   Northwoods Cranberry Sauce         Supplier3      40.99
+
+Command: tree_inorder
+P1   Chais                              Supplier1      18.00  RED    
+P2   Chang                              Supplier1      19.50  BLACK  
+P3   Aniseed Syrup                      Supplier1      12.99  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75  BLACK  
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P6   Grandma Boysenberry Spread         Supplier3      25.50  RED    
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.70  BLACK  
+P8   Northwoods Cranberry Sauce         Supplier3      40.99  RED    
+
+Command: tree_preorder
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75  BLACK  
+P2   Chang                              Supplier1      19.50  BLACK  
+P1   Chais                              Supplier1      18.00  RED    
+P3   Aniseed Syrup                      Supplier1      12.99  RED    
+P6   Grandma Boysenberry Spread         Supplier3      25.50  RED    
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.70  BLACK  
+P8   Northwoods Cranberry Sauce         Supplier3      40.99  RED    
+
+Command: tree_postorder
+P1   Chais                              Supplier1      18.00  RED    
+P3   Aniseed Syrup                      Supplier1      12.99  RED    
+P2   Chang                              Supplier1      19.50  BLACK  
+P5   Chef Anton Gumbo Mix               Supplier2      21.35  BLACK  
+P8   Northwoods Cranberry Sauce         Supplier3      40.99  RED    
+P7   Uncle Bob's Organic Dried Pears    Supplier3      30.70  BLACK  
+P6   Grandma Boysenberry Spread         Supplier3      25.50  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75  BLACK  
+
+Command: quit
+The number of nodes deleted: 8

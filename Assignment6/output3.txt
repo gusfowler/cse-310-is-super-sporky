@@ -1,0 +1,45 @@
+
+Command: tree_insert
+P3   Aniseed Syrup                      Supplier1      10.98
+
+Command: tree_insert
+P1   Chais                              Supplier1      18.35
+
+Command: tree_insert
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75
+
+Command: tree_insert
+P2   Chang                              Supplier1      19.00
+
+Command: tree_inorder
+P1   Chais                              Supplier1      18.35  BLACK  
+P2   Chang                              Supplier1      19.00  RED    
+P3   Aniseed Syrup                      Supplier1      10.98  BLACK  
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75  BLACK  
+
+Command: tree_postorder
+P2   Chang                              Supplier1      19.00  RED    
+P1   Chais                              Supplier1      18.35  BLACK  
+P4   Chef Anton Cajun Seasoning         Supplier2      22.75  BLACK  
+P3   Aniseed Syrup                      Supplier1      10.98  BLACK  
+
+Command: tree_predecessor
+P1   Chais                              Supplier1       is FOUND.
+Its Predecessor does NOT EXIST
+
+Command: tree_predecessor
+P3   Aniseed Syrup                      Supplier1       is FOUND.
+Its Predecessor is: 
+P2   Chang                              Supplier1      19.00  RED    
+
+Command: tree_successor
+P2   Chang                              Supplier1       is FOUND.
+Its Successor is: 
+P3   Aniseed Syrup                      Supplier1      10.98  BLACK  
+
+Command: tree_successor
+P4   Chef Anton Cajun Seasoning         Supplier2       is FOUND.
+Its Successor does NOT EXIST
+
+Command: quit
+The number of nodes deleted: 4

@@ -1,0 +1,34 @@
+tree_insert,P2,Chang,Supplier1,19.00
+tree_insert,P4,Chef Anton Cajun Seasoning,Supplier2,22.00
+tree_insert,P5,Chef Anton Gumbo Mix,Supplier2,21.35
+tree_insert,P7,Uncle Bob's Organic Dried Pears,Supplier3,30.00
+tree_insert,P1,Chais,Supplier1,18.00
+tree_insert,P3,Aniseed Syrup,Supplier1,10.00
+tree_insert,P6,Grandma Boysenberry Spread,Supplier3,25.00
+tree_insert,P8,Northwoods Cranberry Sauce,Supplier3,40.00
+tree_inorder
+tree_predecessor,P1,Chais,Supplier1
+tree_predecessor,P5,Chef Anton Gumbo Mix,Supplier2
+tree_successor,P4,Chef Anton Cajun Seasoning,Supplier2
+tree_successor,P8,Northwoods Cranberry Sauce,Supplier3
+tree_insert,P9,Mishi Kobe Niku,Supplier4,97.00
+tree_minimum
+tree_maximum
+tree_preorder
+tree_postorder
+tree_insert,P14,Tofu,Supplier6,23.25
+tree_insert,P28,Rossle Sauerkraut,Supplier12,45.60
+tree_insert,P17,Original Frankfurter grune Sobe,Supplier12,13.00
+tree_insert,P30,Schoggi Schokolade,Supplier11,43.90
+tree_insert,P28,Rossle Sauerkraut,Supplier12,45.60
+tree_insert,P29,Thuringer Rostbratwurst,Supplier16,123.79
+tree_insert,P31,Nord-Ost Matjeshering,Supplier13,25.89
+tree_insert,P43,Gorgonzola Telino,Supplier14,12.50
+tree_insert,P32,Mascarpone Fabioli,Supplier14,32.00
+tree_insert,P62,Tarte au sucre,Supplier29,49.30
+tree_search,P4,Chef Anton Cajun Seasoning,Supplier2
+tree_predecessor,P62,Tarte au sucre,Supplier29
+tree_successor,P29,Thuringer Rostbratwurst,Supplier16
+tree_maximum
+tree_inorder
+quit

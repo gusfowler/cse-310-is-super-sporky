@@ -1,0 +1,14 @@
+tree_insert,P3,Aniseed Syrup,Supplier1,10.99
+tree_insert,P1,Chais,Supplier1,18.80
+tree_insert,P4,Chef Anton Cajun Seasoning,Supplier2,22.79
+tree_insert,P2,Chang,Supplier1,19.80
+tree_insert,P5,Grandma Jam,Supplier2,19.80
+tree_preorder
+tree_inorder
+tree_minimum
+tree_maximum
+tree_search,P3,Aniseed Syrup,Supplier1
+tree_search,P4,Chef Anton Cajun Seasoning,Supplier8
+tree_search,P1,Chais,Supplier1
+tree_search,P5,Chang,Supplier2
+quit

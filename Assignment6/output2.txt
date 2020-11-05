@@ -1,0 +1,52 @@
+
+Command: tree_insert
+P3   Aniseed Syrup                      Supplier1      10.99
+
+Command: tree_insert
+P1   Chais                              Supplier1      18.80
+
+Command: tree_insert
+P4   Chef Anton Cajun Seasoning         Supplier2      22.79
+
+Command: tree_insert
+P2   Chang                              Supplier1      19.80
+
+Command: tree_insert
+P5   Grandma Jam                        Supplier2      19.80
+
+Command: tree_preorder
+P3   Aniseed Syrup                      Supplier1      10.99  BLACK  
+P1   Chais                              Supplier1      18.80  BLACK  
+P2   Chang                              Supplier1      19.80  RED    
+P4   Chef Anton Cajun Seasoning         Supplier2      22.79  BLACK  
+P5   Grandma Jam                        Supplier2      19.80  RED    
+
+Command: tree_inorder
+P1   Chais                              Supplier1      18.80  BLACK  
+P2   Chang                              Supplier1      19.80  RED    
+P3   Aniseed Syrup                      Supplier1      10.99  BLACK  
+P4   Chef Anton Cajun Seasoning         Supplier2      22.79  BLACK  
+P5   Grandma Jam                        Supplier2      19.80  RED    
+
+Command: tree_minimum
+The MINIMUM is:
+P1   Chais                              Supplier1      18.80  BLACK  
+
+Command: tree_maximum
+The MAXIMUM is:
+P5   Grandma Jam                        Supplier2      19.80  RED    
+
+Command: tree_search
+P3   Aniseed Syrup                      Supplier1       is FOUND.
+
+Command: tree_search
+P4   Chef Anton Cajun Seasoning         Supplier8       is NOT FOUND.
+
+Command: tree_search
+P1   Chais                              Supplier1       is FOUND.
+
+Command: tree_search
+P5   Chang                              Supplier2       is NOT FOUND.
+
+Command: quit
+The number of nodes deleted: 5

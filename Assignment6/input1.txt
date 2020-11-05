@@ -1,0 +1,12 @@
+tree_insert,P2,Chang,Supplier1,19.50
+tree_insert,P4,Chef Anton Cajun Seasoning,Supplier2,22.75
+tree_insert,P5,Chef Anton Gumbo Mix,Supplier2,21.35
+tree_insert,P7,Uncle Bob's Organic Dried Pears,Supplier3,30.70
+tree_insert,P1,Chais,Supplier1,18.00
+tree_insert,P3,Aniseed Syrup,Supplier1,12.99
+tree_insert,P6,Grandma Boysenberry Spread,Supplier3,25.50
+tree_insert,P8,Northwoods Cranberry Sauce,Supplier3,40.99
+tree_inorder
+tree_preorder
+tree_postorder
+quit

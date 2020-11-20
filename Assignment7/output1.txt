@@ -1,0 +1,25 @@
+Enter num of cities: 
+Enter one City info.: 
+
+Enter one City info.: 
+
+Enter one City info.: 
+Enter source city name: 
+
+Print the graph before Dijkstra algorithm
+
+Heap size = 3
+
+City Name      d Value     PI             Arrival City List
+New York       20000       No Parent      Arrival city list is empty
+Washington     20000       No Parent      New York(200),
+Los Angeles    20000       No Parent      New York(1300),Washington(1000),
+
+Print the Dijkstra algorithm running result
+
+Source City: Los Angeles
+
+Arrival City  Lowest Price   Shortest Path  
+Los Angeles    0              Los Angeles
+Washington     1000           Los Angeles->Washington
+New York       1200           Los Angeles->Washington->New York

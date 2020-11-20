@@ -40,15 +40,16 @@ class MinHeap
         bool decreaseKey(int index, City oneCitywithNewD);
         bool insert(City oneCity);
         void heapify(int index);
-        City getHeapMin();
+        City getHeapMin() { return cityArr[0]; }
         void extractHeapMin();
-        int leftChild(int parentIndex);
-        int rightChild(int parentIndex);
-        int parent(int childIndex);
+        int leftChild(int parentIndex) { return LEFT(parentIndex); }
+        int rightChild(int parentIndex) { return RIGHT(parentIndex); }
+        int parent(int childIndex) { return PARENT(childIndex); }
         void printHeap();
 
         void build_min_heap();      //***newly added function
         void swap(City* x, City* y);
+        void sort();
  };
 
 //Constructor to dynamically allocate memory for a heap with the specified capacity
@@ -112,9 +113,44 @@ void MinHeap::swap(City* x, City* y) {
 bool MinHeap::insert(City oneCity) {
     bool output = false;
 
-    
+    if (isFound(oneCity.cityName) == -1) {
+        if (size < capacity) {
+            cityArr[size] = oneCity;
+            size += 1;
+            sort();
+            output = true;
+        } else {
+            struct City* tempArr = new City[(capacity * 2) + 1];
+			for (int i = 0; i < size; i++) {
+				tempArr[i] = cityArr[i];
+			}
+			delete[] cityArr;
+			cityArr = tempArr;
+			capacity = 2 * capacity;
+            output = insert(oneCity);
+        }
+    }
 
     return output;
+}
+
+void MinHeap::sort() {
+    for (int i = (size / 2) - 1; i >= 0; i--) {
+		heapify(i);	
+	}
+}
+
+void MinHeap::heapify(int index) {
+    int smallest = index;
+    int left = LEFT(index);
+    int right = RIGHT(index);
+
+    if (left < size && cityArr[left].d < cityArr[index].d) { smallest = left; }
+    if (right < size && cityArr[right].d < cityArr[index].d) { smallest = right; }
+    if (smallest != index) {
+        swap(&cityArr[index], &cityArr[smallest]);
+        heapify(smallest);
+    }
 }
 
 //----
@@ -131,8 +167,16 @@ void MinHeap::extractHeapMin()
 		cout << "\nError: empty heap, cannot extract min" << endl;
 	}
 	//----
-	//----
+    else {
+        // swap first and last
+        City temp = cityArr[0];
+        cityArr[0] = cityArr[size - 1];
+        size -= 1;
 
+        // call heapify
+        heapify(0);
+    }
+	//----
 }
 
 //*********************************************************

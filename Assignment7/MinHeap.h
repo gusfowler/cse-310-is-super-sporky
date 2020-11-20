@@ -1,10 +1,13 @@
 //********************************************************
 // Assignment: ASU CSE310 HW#7
-// Your Name:
-// ASU ID:
-// ASU Email address:
-// Description:
+// Your Name: August Fowler
+// ASU ID: 1214774210
+// ASU Email address: amfowle3@asu.edu
+// Description: MinHeap of LinkedLists to store data needed by Graph.h
 //********************************************************
+#define LEFT(i) (2*i + 1)
+#define RIGHT(i) (2*i + 2)
+#define PARENT(i) ((i - 1) / 2)
 #include "LinkedList.h"
 
 using namespace std;
@@ -45,6 +48,7 @@ class MinHeap
         void printHeap();
 
         void build_min_heap();      //***newly added function
+        void swap(City* x, City* y);
  };
 
 //Constructor to dynamically allocate memory for a heap with the specified capacity
@@ -57,6 +61,62 @@ MinHeap::MinHeap(int capacity)
 
 //Define all remaining functions according to above function declaration
 //----
+
+MinHeap::~MinHeap() {
+    if (!(getSize() < 1)) {
+        for (int i = 0; i < getSize(); i++) {
+            LinkedList* toDelete = cityArr[i].arrCityList;
+            delete toDelete;
+        }
+        delete[] cityArr;
+    }
+}
+
+City* MinHeap::getCityArr() {
+    return cityArr;
+}
+
+int MinHeap::getSize() { return size; }
+
+int MinHeap::getCapacity() { return capacity; }
+
+int MinHeap::isFound(string cityName) {
+    int output = -1;
+
+    if (!(getSize() < 1)) {
+        for (int i = 0; i < getSize(); i++) {
+            if (cityArr[i].cityName.compare(cityName) == 0) {
+                output = i;
+            }
+        }
+    }
+
+    return output;
+}
+
+bool MinHeap::decreaseKey(int index, City oneCitywithNewD) {
+    cityArr[index] = oneCitywithNewD;
+
+    while (index != 0 && cityArr[PARENT(index)].d > cityArr[index].d) {
+        swap(&cityArr[PARENT(index)], &cityArr[index]);
+        index = PARENT(index);
+    }
+}
+
+void MinHeap::swap(City* x, City* y) {
+    City temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+bool MinHeap::insert(City oneCity) {
+    bool output = false;
+
+    
+
+    return output;
+}
+
 //----
 
 

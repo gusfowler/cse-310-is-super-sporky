@@ -1,8 +1,8 @@
 //********************************************************************
 // ASU CSE310 Assignment #7
-// Name:
-// ASU ID:
-// Description:
+// Name: August Fowler
+// ASU ID: 1214774210
+// Description: LinkedList to store data
 
 #include <iostream>
 #include <iomanip>
@@ -36,10 +36,64 @@ class LinkedList
 
 //Define all remaining functions according to above function declaration
 //----
+
+LinkedList::LinkedList() {
+    head = NULL;
+}
+
+LinkedList::~LinkedList() {
+    if (head != NULL) {
+        struct ArrCity* current = head;
+        while (current != NULL) {
+            struct ArrCity* toDelete = current;
+            current = current->next;
+            delete current;
+        }
+    }
+}
+
+ArrCity* LinkedList::getHead() {
+    return head;
+}
+
+ArrCity* LinkedList::findArrCity(string aCity) {
+    if (head != NULL) {
+        struct ArrCity* current = head;
+        
+        while (current != NULL) {
+            if (current->arrCityName.compare(aCity) == 0) {
+                return current;
+            } else {
+                current = current->next;
+            }
+        }
+    }
+    return head;
+}
+
+bool LinkedList::addArrCity(string aCity, int price) {
+    bool output = false;
+
+    struct ArrCity* newNode = new ArrCity;
+    newNode->next = NULL;
+    newNode->arrCityName = aCity;
+    newNode->price = price;
+
+    if (head == NULL) {
+        head = newNode;
+        output = true;
+    } else {
+        struct ArrCity* current = head;
+        
+        while (current->next != NULL) { current = current->next; }
+        current->next = newNode;
+        output = true;
+    }
+
+    return output;
+}
+
 //----
-
-
-
 
 
 //Prints all the elements in the linked list starting from the head.

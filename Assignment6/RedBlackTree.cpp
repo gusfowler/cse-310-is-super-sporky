@@ -43,6 +43,10 @@ int RedBlackTree::deleteNode(Node *node)
 	else
 	{
 	    //add your codes here
+        Node* left = node->leftChild;
+        Node* right = node->rightChild;
+        delete node;
+        return this->deleteNode(left) + this->deleteNode(right) + 1;
 	    //----
 	}
 }
@@ -57,11 +61,46 @@ void RedBlackTree::insertNode(Node *node)
 	if(this->root == NULL) // if the tree is empty
    {
 		//add your codes here
+        this->root = node;
 		//----
 	}
 	else
    {
 		//add your codes here
+        Node * current = this->root;
+        Node * previous = NULL;
+        bool right = false;
+        while (current != NULL) {
+            if (current->foodID.compare(node->foodID) > 0) {
+                previous = current;
+                current = current->rightChild;
+                right = true;
+            } else if (current->foodID.compare(node->foodID) < 0) {
+                previous = current;
+                current = current->leftChild;
+            } else {
+                if (current->name.compare(node->name) > 0) {
+                    previous = current;
+                    current = current->rightChild;
+                    right = true;
+                } else if (current->name.compare(node->name) < 0) {
+                    previous = current;
+                    current = current->leftChild;
+                } else {
+                    if (current->supplierID.compare(node->supplierID) > 0) {
+                        previous = current;
+                        current = current->rightChild;
+                        right = true;
+                    } else if (current->supplierID.compare(node->supplierID) < 0) {
+                        previous = current;
+                        current = current->leftChild;
+                    }
+                }
+            }
+        }
+        node->parent = previous;
+        if (right) { previous->rightChild = node; }
+        else { previous->leftChild = node; }
 		//----
 	}
 
@@ -89,8 +128,55 @@ void RedBlackTree::fixUp(Node *z)
     {
        //add your codes here
        //----
+       Node* grandparent = z->parent->parent;
+       Node* uncle = this->getRoot();
+       if(z->parent == grandparent->leftChild) {
+                    if(grandparent->rightChild) { 
+                        uncle = grandparent->rightChild; 
+                    }
+                    if(uncle->color.compare("RED") == 0){
+                        z->parent->color = "BLACK";
+                        uncle->color = "BLACK";
+                        grandparent->color = "RED";
+                        if(grandparent != root) { z = grandparent; }
+                        else { break; }
+                    }
+                    else if(z == grandparent->leftChild->rightChild) {
+                       leftRotate(z->parent);
+                    }
+                    else {
+                        z->parent->color = "BLACK";
+                        grandparent->color = "RED";
+                        rightRotate(grandparent);
+                        if(grandparent!= root) { 
+                            z = grandparent; 
+                        }
+                        else { break; }
+                    }
+                }
+                else {
+                    if(grandparent->leftChild) { uncle = grandparent->leftChild; }
+                    if(uncle->color.compare("RED") == 0){
+                        z->parent->color = "BLACK";
+                        uncle->color = "BLACK";
+                        grandparent->color = "RED";
+                        if(grandparent != root){ 
+                            z = grandparent; 
+                        }
+                        else { break; }
+                    }
+                    else if(z == grandparent->rightChild->leftChild){
+                        rightRotate(z->parent);
+                    }
+                    else {
+                        z->parent->color = "BLACK";
+                        grandparent->color = "RED";
+                        leftRotate(grandparent);
+                        if(grandparent != root){ z = grandparent; }
+                        else { break; }
+                    }
+                }
        //----
-
     }//end while
 
     //make sure the root is always 'BLACK'
@@ -99,7 +185,7 @@ void RedBlackTree::fixUp(Node *z)
 
 //*****************************************************
 //This function print the pre-order traversal of the
-//subtree rooted at 'node'.It's a recursive function
+//subtree rooted at 'node'.It's a recursive function - Root, Left, Right
 void RedBlackTree::preOrderTraversal(Node *node)
 {
 	if(node == NULL)
@@ -110,13 +196,16 @@ void RedBlackTree::preOrderTraversal(Node *node)
    {
        //add your codes here
        //----
+       this->print(node);
+       this->preOrderTraversal(node->leftChild);
+       this->preOrderTraversal(node->rightChild);
 	   //----
 	}
 }
 
 //**************************************************
 //This function print the in-order traversal of the
-//subtree rooted at 'node'.It's a recursive function
+//subtree rooted at 'node'.It's a recursive function - Left, Root, Right
 void RedBlackTree::inorderTraversal(Node *node)
 {
    if(node == NULL)
@@ -127,13 +216,16 @@ void RedBlackTree::inorderTraversal(Node *node)
    {
        //add your codes here
        //----
+       this->inorderTraversal(node->leftChild);
+       this->print(node);
+       this->inorderTraversal(node->rightChild);
 	   //----
 	}
 }
 
 //**************************************************
 //This function print the post-order traversal of the
-//subtree rooted at 'node'.It's a recursive function
+//subtree rooted at 'node'.It's a recursive function - Left, Right, Root
 void RedBlackTree::postOrderTraversal(Node *node)
 {
    if(node == NULL)
@@ -144,6 +236,9 @@ void RedBlackTree::postOrderTraversal(Node *node)
    {
        //add your codes here
        //----
+       this->postOrderTraversal(node->leftChild);
+       this->postOrderTraversal(node->rightChild);
+       this->print(node);
 	   //----
 	}
 }
@@ -162,6 +257,11 @@ Node* RedBlackTree::findMinimumNode(Node *node)
     {
        //add your codes here
        //----
+       if (node->leftChild != NULL) {
+           this->findMinimumNode(node->leftChild);
+       } else {
+            this->print(node);
+       }
 	   //----
 	 }
 }
@@ -180,6 +280,11 @@ Node* RedBlackTree::findMaximumNode(Node *node)
    {
        //add your codes here
        //----
+       if (node->rightChild != NULL) {
+           this->findMinimumNode(node->rightChild);
+       } else {
+            this->print(node);
+       }
 	   //----
 	}
 }
@@ -190,13 +295,15 @@ Node* RedBlackTree::findMaximumNode(Node *node)
 //It returns a pointer points to the node if founded, otherwise return NULL
 Node* RedBlackTree::treeSearch(string foodID, string name, string supplierID)
 {
-   string key1 = productID + name + supplierID;
+   string key1 = foodID + name + supplierID;
 	Node *node = root;
 	while(node != NULL)
     {
 		//----
+        string searchKey = node->foodID + node->name + node->supplierID;
+        
 		//-----
-		if(//----)
+		if(key1.compare(searchKey) == 0)
 		{
 	        cout << left;
 	        cout << setw(5) << foodID
@@ -390,6 +497,15 @@ void RedBlackTree::treeInsert(string foodID, string name, string supplierID, dou
 {
 	//add your codes here
 	//----
+    Node* newNode = new Node();
+    newNode->foodID = foodID;
+    newNode->name = name;
+    newNode->supplierID = supplierID;
+    newNode->price = price;
+    newNode->leftChild = NULL;
+    newNode->rightChild = NULL;
+    newNode->color = "RED";
+    if 
 	//----
 }
 

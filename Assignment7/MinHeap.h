@@ -117,7 +117,7 @@ bool MinHeap::insert(City oneCity) {
         if (size < capacity) {
             cityArr[size] = oneCity;
             size += 1;
-            sort();
+            build_min_heap();
             output = true;
         } else {
             struct City* tempArr = new City[(capacity * 2) + 1];
@@ -134,7 +134,7 @@ bool MinHeap::insert(City oneCity) {
     return output;
 }
 
-void MinHeap::sort() {
+void MinHeap::build_min_heap() {
     for (int i = (size / 2) - 1; i >= 0; i--) {
 		heapify(i);	
 	}

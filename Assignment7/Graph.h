@@ -64,7 +64,10 @@ void Graph::initialize_single_source(string sourceCityName) {
 }
 
 void Graph::relax(City u, City v) {
-    int weight = u.arrCityList->findArrCity(v.cityName)->price;
+    int weight;
+    if (u.arrCityList->findArrCity(v.cityName) != NULL) {
+        weight = u.arrCityList->findArrCity(v.cityName)->price;
+    }
 
     if (v.d > u.d + weight) {
         v.d = u.d + weight;
@@ -114,6 +117,8 @@ void Graph::printDijkstraPath(string sourceCityName)
    cout << left;
    cout << setw(15) << "\nArrival City" << setw(15) << "Lowest Price"   << setw(15) << "Shortest Path" << endl;
    //----
+   dijkstra(sourceCityName);
+   printGraph();
    //----
 
 }

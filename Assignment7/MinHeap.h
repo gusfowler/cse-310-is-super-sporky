@@ -153,7 +153,10 @@ void MinHeap::heapify(int index) {
     if (left < size && cityArr[left].d < cityArr[index].d) { smallest = left; }
     if (right < size && cityArr[right].d < cityArr[index].d) { smallest = right; }
     if (smallest != index) {
-        swap(&cityArr[index], &cityArr[smallest]);
+        //swap(&cityArr[index], &cityArr[smallest]);
+        City temp = cityArr[index];
+		cityArr[index] = cityArr[smallest];
+		cityArr[smallest] = temp;
         heapify(smallest);
     }
 }
@@ -174,12 +177,19 @@ void MinHeap::extractHeapMin()
 	//----
     else {
         // swap first and last
-        City temp = cityArr[0];
         cityArr[0] = cityArr[size - 1];
         size -= 1;
 
         // call heapify
         heapify(0);
+
+        //move addresses
+        struct City* tempArr = new City[capacity];
+			for (int i = 0; i < size; i++) {
+				tempArr[i] = cityArr[i];
+			}
+			delete[] cityArr;
+			cityArr = tempArr;
     }
 	//----
 }

@@ -2,7 +2,7 @@
 // ASU CSE310 Assignment #7
 // Name of Author:
 // ASU ID:
-// Description: //---- is where you should add your own code
+// Description: Dijkstra's shortest path demo
 //********************************************************************
 
 #include "Graph.h"

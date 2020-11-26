@@ -48,6 +48,7 @@ class MinHeap
         void printHeap();
 
         void build_min_heap();      //***newly added function
+        City* getInOrderCityArr();
         void swap(City* x, City* y);
         void sort();
  };
@@ -140,9 +141,7 @@ bool MinHeap::insert(City oneCity) {
 }
 
 void MinHeap::build_min_heap() {
-    for (int i = (size / 2) - 1; i >= 0; i--) {
-		heapify(i);	
-	}
+    for (int i = size - 1; i >= 0; i--) { heapify(i); }
 }
 
 void MinHeap::heapify(int index) {
@@ -153,10 +152,7 @@ void MinHeap::heapify(int index) {
     if (left < size && cityArr[left].d < cityArr[index].d) { smallest = left; }
     if (right < size && cityArr[right].d < cityArr[index].d) { smallest = right; }
     if (smallest != index) {
-        //swap(&cityArr[index], &cityArr[smallest]);
-        City temp = cityArr[index];
-		cityArr[index] = cityArr[smallest];
-		cityArr[smallest] = temp;
+        swap(&cityArr[index], &cityArr[smallest]);
         heapify(smallest);
     }
 }
@@ -177,19 +173,13 @@ void MinHeap::extractHeapMin()
 	//----
     else {
         // swap first and last
+        City* temp = &(cityArr[0]);
+        temp = NULL;
         cityArr[0] = cityArr[size - 1];
         size -= 1;
 
         // call heapify
         heapify(0);
-
-        //move addresses
-        struct City* tempArr = new City[capacity];
-			for (int i = 0; i < size; i++) {
-				tempArr[i] = cityArr[i];
-			}
-			delete[] cityArr;
-			cityArr = tempArr;
     }
 	//----
 }

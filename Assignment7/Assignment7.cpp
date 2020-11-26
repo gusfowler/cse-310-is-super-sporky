@@ -30,7 +30,9 @@ int main()
    for(int i = 0; i< count; i++)
    {
       cityArr[i].d = 20000;
+      cityArr[i].pi = NULL;
       //----
+      cityArr[i].arrCityList = new LinkedList();
       //----
    }
 
@@ -40,7 +42,9 @@ int main()
       cout << "\nEnter one City info.: " << endl;
       getline(cin, oneLine);
       //----
-
+      getCityInfo(oneLine, sourceCityName, cityArr[i].arrCityList);
+      cityArr[i].cityName = sourceCityName;
+      cityArr[i].pi = NULL;
    }
 
    cout << "Enter source city name: " << endl;
@@ -50,21 +54,28 @@ int main()
    MinHeap* cityHeap = new MinHeap(count*2);
 
    //insert each City objects one by one inside cityHeap
+   for (int i = 0; i < count; i++) {
+      cityHeap->insert(cityArr[i]);
+   }
    //----
 
 
    //create a Graph object by using its constructor
+   Graph cityGraph = Graph(count, cityHeap);
    //----
 
    //print the graph adjacency list before running Dijkstra algorithm
    cout << "\nPrint the graph before Dijkstra algorithm" << endl;
+   cityGraph.printGraph();
    //----;
 
    //Run Dijkstra algorithm on the graph
+   //cityGraph.dijkstra(sourceCityName);
    //----
 
    //print the Dijkstra shortest path result
    cout << "\nPrint the Dijkstra algorithm running result" << endl;
+   cityGraph.printDijkstraPath(sourceCityName);
    //----
 }
 
@@ -72,6 +83,23 @@ int main()
 //This function from one line, get all city info.
 void getCityInfo(string oneLine, string& depCityName, LinkedList* arrCityList)
 {
+   //----
+   char delimiter = ',';
+   while (oneLine.length() > 0) {
+      int pos = oneLine.find_first_of(delimiter);
+      string token = oneLine.substr(0, pos);
+
+      if (token.find("(") != -1) {
+         string name;
+         int price;
+         getArrCityInfo(token, name, price);
+         arrCityList->addArrCity(name, price);
+      } else if (token.length() > 0) {
+         depCityName = token;
+      }
+
+      oneLine.erase(0, pos + 1);
+   }
    //----
 }
 

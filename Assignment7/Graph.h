@@ -21,7 +21,7 @@ class Graph
    void destructor();
    void printGraph();
    void initialize_single_source(string sourceCityName);
-   void relax(City u, City v);
+   void relax(City &u, City &v);
    int findOneCity(string aCityName);
 
    void dijkstra(string sourceCityName);
@@ -54,8 +54,8 @@ void Graph::printGraph() {
 
 void Graph::initialize_single_source(string sourceCityName) {
     for (int i = 0; i < numOfNode; i++) {
-        cityHeap->getCityArr()[i].d = 2000;
-        cityHeap->getCityArr()[i].pi = NULL;
+        //cityHeap->getCityArr()[i].d = 20000;
+        //cityHeap->getCityArr()[i].pi = NULL;
         if (cityHeap->getCityArr()[i].cityName.compare(sourceCityName) == 0) {
             cityHeap->getCityArr()[i].d = 0;
         } 
@@ -63,8 +63,9 @@ void Graph::initialize_single_source(string sourceCityName) {
     cityHeap->heapify(0);
 }
 
-void Graph::relax(City u, City v) {
-    int weight;
+void Graph::relax(City &u, City &v) {
+    int weight = 0;
+    bool relaxed = false;
     if (u.arrCityList->findArrCity(v.cityName) != NULL) {
         weight = u.arrCityList->findArrCity(v.cityName)->price;
     }
@@ -72,8 +73,10 @@ void Graph::relax(City u, City v) {
     if (v.d > u.d + weight) {
         v.d = u.d + weight;
         v.pi = &u;
+        relaxed = true;
     }
 
+    cout << "\t| " << u.cityName << " | " << (u.d) << " | " << weight << " | " << v.cityName << " | " << v.d << " | " << relaxed << endl;
 }
 
 int Graph::findOneCity(string aCityName) { return cityHeap->isFound(aCityName); }
@@ -89,17 +92,28 @@ void Graph::dijkstra(string sourceCityName)
    int i = 0; //counter
    initialize_single_source(sourceCityName);                    // init source on top
    MinHeap* shortestPathHeap = new MinHeap(numOfNode);          // heap to auto sort to minimum path distance
+   MinHeap* tempComparisonHeap = new MinHeap(numOfNode);
+   for (int i = 0; i < cityHeap->getSize(); i++) {
+       tempComparisonHeap->insert(cityHeap->getCityArr()[i]);
+   }
    
-   while (cityHeap->getSize() > 0) {
+   int counter = 0;
+   int limit = cityHeap->getSize();
+
+   while (limit > counter) {
        City u = cityHeap->getHeapMin();                         // extract least distance City
        cityHeap->extractHeapMin();
        
-       for (int i = 0; i < cityHeap->getSize(); i++) {
+       cout << counter << " |\t" << u.cityName << endl;
+       cityHeap->printHeap();
+       shortestPathHeap->printHeap();
+       for (int i = 0; i < cityHeap->getSize() && cityHeap->getSize() > 1; i++) {
            relax(u, cityHeap->getCityArr()[i]);                 // calculate distance between src city u and all remaining cities
            cityHeap->heapify(i);                                // run heapify to keep Heap built
        }
 
        shortestPathHeap->insert(u);                             // insert least distance City into shortestPath
+       counter += 1;
    }
    
    if (cityHeap->getSize() == 0) {

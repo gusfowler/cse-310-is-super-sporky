@@ -96,12 +96,17 @@ int MinHeap::isFound(string cityName) {
 }
 
 bool MinHeap::decreaseKey(int index, City oneCitywithNewD) {
+    bool output = false;
+    
     cityArr[index] = oneCitywithNewD;
 
     while (index != 0 && cityArr[PARENT(index)].d > cityArr[index].d) {
         swap(&cityArr[PARENT(index)], &cityArr[index]);
         index = PARENT(index);
+        output = true;
     }
+
+    return output;
 }
 
 void MinHeap::swap(City* x, City* y) {

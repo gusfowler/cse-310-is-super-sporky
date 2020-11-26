@@ -57,18 +57,19 @@ ArrCity* LinkedList::getHead() {
 }
 
 ArrCity* LinkedList::findArrCity(string aCity) {
-    if (head != NULL) {
-        struct ArrCity* current = head;
-        
-        while (current != NULL) {
-            if (current->arrCityName.compare(aCity) == 0) {
-                return current;
-            } else {
-                current = current->next;
-            }
+    struct ArrCity* current = head;
+    bool found = false;
+    
+    while (current != NULL) {
+        if (current->arrCityName.compare(aCity) == 0) {
+            found = true;
+            break;  
+        } else {
+            current = current->next;
         }
     }
-    return head;
+    if (found == false && current == NULL) { return NULL; }
+    return current;
 }
 
 bool LinkedList::addArrCity(string aCity, int price) {

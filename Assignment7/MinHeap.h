@@ -42,9 +42,11 @@ class MinHeap
         void heapify(int index);
         City getHeapMin() { return cityArr[0]; }
         void extractHeapMin();
-        int leftChild(int parentIndex) { return LEFT(parentIndex); }
-        int rightChild(int parentIndex) { return RIGHT(parentIndex); }
-        int parent(int childIndex) { return PARENT(childIndex); }
+        int leftChild(int parentIndex) { 
+            return ((2 * parentIndex) + 1); 
+        }
+        int rightChild(int parentIndex) { return ((2 * parentIndex) + 2); }
+        int parent(int childIndex) { return ((childIndex - 1) / 2); }
         void printHeap();
 
         void build_min_heap();      //***newly added function
@@ -146,13 +148,16 @@ void MinHeap::build_min_heap() {
 
 void MinHeap::heapify(int index) {
     int smallest = index;
-    int left = LEFT(index);
-    int right = RIGHT(index);
+    int left = leftChild(index);
+    int right = rightChild(index);
 
     if (left < size && cityArr[left].d < cityArr[index].d) { smallest = left; }
     if (right < size && cityArr[right].d < cityArr[index].d) { smallest = right; }
     if (smallest != index) {
-        swap(&cityArr[index], &cityArr[smallest]);
+        //swap(&cityArr[index], &cityArr[smallest]);
+        City temp = cityArr[index];
+        cityArr[index] = cityArr[smallest];
+        cityArr[smallest] = temp;
         heapify(smallest);
     }
 }

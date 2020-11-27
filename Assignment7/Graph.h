@@ -113,10 +113,12 @@ void Graph::printDijkstraPath(string sourceCityName)
     for (int i = 0; i < cityHeap->getSize(); i++) {
         tempHeap.insert(cityHeap->getCityArr()[i]);
     }
+    tempHeap.build_min_heap();
 
    while(tempHeap.getSize() > 0) {
        City current = cityHeap->getCityArr()[cityHeap->isFound(tempHeap.getHeapMin().cityName)];    // iterative step
        tempHeap.extractHeapMin();
+       tempHeap.build_min_heap();
        cout << setw(15) << current.cityName << setw(15) << current.d << setw(15);       // formatting
        string path = current.cityName;
        if (current.pi != NULL) {

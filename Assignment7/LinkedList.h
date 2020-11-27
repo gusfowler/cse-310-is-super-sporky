@@ -32,6 +32,7 @@ class LinkedList
         ArrCity* findArrCity(string aCity);
         bool addArrCity(string aCity, int price);
         void printArrCityList();
+        void alphabetical_sort();
 };
 
 //Define all remaining functions according to above function declaration
@@ -96,11 +97,12 @@ bool LinkedList::addArrCity(string aCity, int price) {
 
 //----
 
-
 //Prints all the elements in the linked list starting from the head.
 void LinkedList::printArrCityList()
 {
     struct ArrCity *temp = head;
+
+    // flip the head to induce abc order
 
 	if(head == NULL)
     {

@@ -137,7 +137,7 @@ void Graph::MergeSortEdges()
 void Graph::mergeSort(Edge* edgeArray, int start, int end)
 {
 	//----
-    if (start > end) {
+    if (start < end) {
         int middle = (start + end) / 2; // finds middle
 
         // create subproblems
@@ -208,6 +208,7 @@ void Graph::MST_Kruskal()
    // make set for each edge in flight path
    for (int i = 0; i < V; i++) make_set(&(cityArr[i]));
    MergeSortEdges(); // sorts edges in 'non-decreasing order'
+
    //----
    for (int j = 0; j < E; j++) {
        City* aCity = edgeArr[j].getCity1();

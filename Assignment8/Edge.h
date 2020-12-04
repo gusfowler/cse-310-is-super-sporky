@@ -27,6 +27,12 @@ struct City
       rank = 0;
       parent = NULL;
    }
+   //null constructor
+   City() {
+       cityName = "";
+       rank = NULL;
+       parent= NULL;
+   }
 };
 
 //class Edge represents one edge of the graph which connects two City objects
@@ -38,6 +44,7 @@ class Edge
    double price;
 
    public:
+   Edge();
    Edge(City* city1, City* city2, double price);
    ~Edge();
    City* getCity1();
@@ -45,6 +52,13 @@ class Edge
    double getPrice();
    void printEdge();
 };
+
+//null constructor
+Edge::Edge() {
+    city1 = NULL;
+    city2 = NULL;
+    price = NULL;
+}
 
 //constructor
 Edge::Edge(City* city1, City* city2, double price)
@@ -60,7 +74,8 @@ Edge::Edge(City* city1, City* city2, double price)
 Edge::~Edge()
 {
    //----
-   delete city1, city2;
+   city1 = NULL;
+   city2 = NULL;
    price = 0;
    //----
 }

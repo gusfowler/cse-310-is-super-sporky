@@ -1,7 +1,7 @@
 //************************************************************************
 // ASU CSE310 Assignment #8 Fall 2020
-// ASU ID:
-// Name:
+// ASU ID: 1214774210
+// Name: August Fowler
 // Description: this is the main program that reads input from keyboard,
 // it then use disjoint set data structure to perform Kruskal MST algorithm
 // on the graph.
